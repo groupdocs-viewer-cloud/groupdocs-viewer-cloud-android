@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="CadOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,9 +33,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.viewer.model.Tile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Rendering options for CAD file formats. CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl
@@ -50,6 +53,18 @@ public class CadOptions {
 
   @SerializedName("height")
   private Integer height = null;
+
+  @SerializedName("tiles")
+  private List<Tile> tiles = null;
+
+  @SerializedName("renderLayouts")
+  private Boolean renderLayouts = null;
+
+  @SerializedName("layoutName")
+  private String layoutName = null;
+
+  @SerializedName("layers")
+  private List<String> layers = null;
 
   public CadOptions scaleFactor(Double scaleFactor) {
     this.scaleFactor = scaleFactor;
@@ -105,6 +120,94 @@ public class CadOptions {
     this.height = height;
   }
 
+  public CadOptions tiles(List<Tile> tiles) {
+    this.tiles = tiles;
+    return this;
+  }
+
+  public CadOptions addTilesItem(Tile tilesItem) {
+    if (this.tiles == null) {
+      this.tiles = new ArrayList<Tile>();
+    }
+    this.tiles.add(tilesItem);
+    return this;
+  }
+
+   /**
+   * The drawing regions to render This option supported only for DWG and DWT file types The RenderLayouts and LayoutName options are ignored when rendering by tiles
+   * @return tiles
+  **/
+  @ApiModelProperty(value = "The drawing regions to render This option supported only for DWG and DWT file types The RenderLayouts and LayoutName options are ignored when rendering by tiles")
+  public List<Tile> getTiles() {
+    return tiles;
+  }
+
+  public void setTiles(List<Tile> tiles) {
+    this.tiles = tiles;
+  }
+
+  public CadOptions renderLayouts(Boolean renderLayouts) {
+    this.renderLayouts = renderLayouts;
+    return this;
+  }
+
+   /**
+   * Indicates whether layouts from CAD document should be rendered
+   * @return renderLayouts
+  **/
+  @ApiModelProperty(required = true, value = "Indicates whether layouts from CAD document should be rendered")
+  public Boolean getRenderLayouts() {
+    return renderLayouts;
+  }
+
+  public void setRenderLayouts(Boolean renderLayouts) {
+    this.renderLayouts = renderLayouts;
+  }
+
+  public CadOptions layoutName(String layoutName) {
+    this.layoutName = layoutName;
+    return this;
+  }
+
+   /**
+   * The name of the specific layout to render. Layout name is case-sensitive
+   * @return layoutName
+  **/
+  @ApiModelProperty(value = "The name of the specific layout to render. Layout name is case-sensitive")
+  public String getLayoutName() {
+    return layoutName;
+  }
+
+  public void setLayoutName(String layoutName) {
+    this.layoutName = layoutName;
+  }
+
+  public CadOptions layers(List<String> layers) {
+    this.layers = layers;
+    return this;
+  }
+
+  public CadOptions addLayersItem(String layersItem) {
+    if (this.layers == null) {
+      this.layers = new ArrayList<String>();
+    }
+    this.layers.add(layersItem);
+    return this;
+  }
+
+   /**
+   * The CAD drawing layers to render By default all layers are rendered; Layer names are case-sensitive
+   * @return layers
+  **/
+  @ApiModelProperty(value = "The CAD drawing layers to render By default all layers are rendered; Layer names are case-sensitive")
+  public List<String> getLayers() {
+    return layers;
+  }
+
+  public void setLayers(List<String> layers) {
+    this.layers = layers;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,12 +220,16 @@ public class CadOptions {
     CadOptions cadOptions = (CadOptions) o;
     return Objects.equals(this.scaleFactor, cadOptions.scaleFactor) &&
         Objects.equals(this.width, cadOptions.width) &&
-        Objects.equals(this.height, cadOptions.height);
+        Objects.equals(this.height, cadOptions.height) &&
+        Objects.equals(this.tiles, cadOptions.tiles) &&
+        Objects.equals(this.renderLayouts, cadOptions.renderLayouts) &&
+        Objects.equals(this.layoutName, cadOptions.layoutName) &&
+        Objects.equals(this.layers, cadOptions.layers);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scaleFactor, width, height);
+    return Objects.hash(scaleFactor, width, height, tiles, renderLayouts, layoutName, layers);
   }
 
 
@@ -134,6 +241,10 @@ public class CadOptions {
     sb.append("    scaleFactor: ").append(toIndentedString(scaleFactor)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
+    sb.append("    tiles: ").append(toIndentedString(tiles)).append("\n");
+    sb.append("    renderLayouts: ").append(toIndentedString(renderLayouts)).append("\n");
+    sb.append("    layoutName: ").append(toIndentedString(layoutName)).append("\n");
+    sb.append("    layers: ").append(toIndentedString(layers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

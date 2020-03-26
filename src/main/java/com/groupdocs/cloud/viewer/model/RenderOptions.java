@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="RenderOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,13 +33,20 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.viewer.model.ArchiveOptions;
 import com.groupdocs.cloud.viewer.model.CadOptions;
 import com.groupdocs.cloud.viewer.model.EmailOptions;
+import com.groupdocs.cloud.viewer.model.OutlookOptions;
+import com.groupdocs.cloud.viewer.model.PageRotation;
+import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
+import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Rendering options
@@ -52,6 +59,12 @@ public class RenderOptions {
   @SerializedName("countPagesToRender")
   private Integer countPagesToRender = null;
 
+  @SerializedName("pagesToRender")
+  private List<Integer> pagesToRender = null;
+
+  @SerializedName("pageRotations")
+  private List<PageRotation> pageRotations = null;
+
   @SerializedName("defaultFontName")
   private String defaultFontName = null;
 
@@ -60,6 +73,9 @@ public class RenderOptions {
 
   @SerializedName("renderComments")
   private Boolean renderComments = null;
+
+  @SerializedName("renderNotes")
+  private Boolean renderNotes = null;
 
   @SerializedName("renderHiddenPages")
   private Boolean renderHiddenPages = null;
@@ -75,6 +91,18 @@ public class RenderOptions {
 
   @SerializedName("projectManagementOptions")
   private ProjectManagementOptions projectManagementOptions = null;
+
+  @SerializedName("pdfDocumentOptions")
+  private PdfDocumentOptions pdfDocumentOptions = null;
+
+  @SerializedName("wordProcessingOptions")
+  private WordProcessingOptions wordProcessingOptions = null;
+
+  @SerializedName("outlookOptions")
+  private OutlookOptions outlookOptions = null;
+
+  @SerializedName("archiveOptions")
+  private ArchiveOptions archiveOptions = null;
 
   public RenderOptions startPageNumber(Integer startPageNumber) {
     this.startPageNumber = startPageNumber;
@@ -110,6 +138,58 @@ public class RenderOptions {
 
   public void setCountPagesToRender(Integer countPagesToRender) {
     this.countPagesToRender = countPagesToRender;
+  }
+
+  public RenderOptions pagesToRender(List<Integer> pagesToRender) {
+    this.pagesToRender = pagesToRender;
+    return this;
+  }
+
+  public RenderOptions addPagesToRenderItem(Integer pagesToRenderItem) {
+    if (this.pagesToRender == null) {
+      this.pagesToRender = new ArrayList<Integer>();
+    }
+    this.pagesToRender.add(pagesToRenderItem);
+    return this;
+  }
+
+   /**
+   * Pages list to render. Ignored, if StartPageNumber and CountPagesToRender are provided
+   * @return pagesToRender
+  **/
+  @ApiModelProperty(value = "Pages list to render. Ignored, if StartPageNumber and CountPagesToRender are provided")
+  public List<Integer> getPagesToRender() {
+    return pagesToRender;
+  }
+
+  public void setPagesToRender(List<Integer> pagesToRender) {
+    this.pagesToRender = pagesToRender;
+  }
+
+  public RenderOptions pageRotations(List<PageRotation> pageRotations) {
+    this.pageRotations = pageRotations;
+    return this;
+  }
+
+  public RenderOptions addPageRotationsItem(PageRotation pageRotationsItem) {
+    if (this.pageRotations == null) {
+      this.pageRotations = new ArrayList<PageRotation>();
+    }
+    this.pageRotations.add(pageRotationsItem);
+    return this;
+  }
+
+   /**
+   * Page rotations
+   * @return pageRotations
+  **/
+  @ApiModelProperty(value = "Page rotations")
+  public List<PageRotation> getPageRotations() {
+    return pageRotations;
+  }
+
+  public void setPageRotations(List<PageRotation> pageRotations) {
+    this.pageRotations = pageRotations;
   }
 
   public RenderOptions defaultFontName(String defaultFontName) {
@@ -154,16 +234,34 @@ public class RenderOptions {
   }
 
    /**
-   * When enabled comments will be rendered to the output.
+   * When enabled comments will be rendered to the output
    * @return renderComments
   **/
-  @ApiModelProperty(required = true, value = "When enabled comments will be rendered to the output.")
+  @ApiModelProperty(required = true, value = "When enabled comments will be rendered to the output")
   public Boolean getRenderComments() {
     return renderComments;
   }
 
   public void setRenderComments(Boolean renderComments) {
     this.renderComments = renderComments;
+  }
+
+  public RenderOptions renderNotes(Boolean renderNotes) {
+    this.renderNotes = renderNotes;
+    return this;
+  }
+
+   /**
+   * When enabled notes will be rendered to the output
+   * @return renderNotes
+  **/
+  @ApiModelProperty(required = true, value = "When enabled notes will be rendered to the output")
+  public Boolean getRenderNotes() {
+    return renderNotes;
+  }
+
+  public void setRenderNotes(Boolean renderNotes) {
+    this.renderNotes = renderNotes;
   }
 
   public RenderOptions renderHiddenPages(Boolean renderHiddenPages) {
@@ -190,10 +288,10 @@ public class RenderOptions {
   }
 
    /**
-   * Rendering options for Spreadsheet file formats. Spreadsheet file formats include files with extensions: .xls, .xlsx, .xlsm, .xlsb, .csv, .ods, .ots, .xltx, .xltm, .tsv 
+   * Rendering options for Spreadsheet source file formats Spreadsheet file formats include files with extensions: .xls, .xlsx, .xlsm, .xlsb, .csv, .ods, .ots, .xltx, .xltm, .tsv 
    * @return spreadsheetOptions
   **/
-  @ApiModelProperty(value = "Rendering options for Spreadsheet file formats. Spreadsheet file formats include files with extensions: .xls, .xlsx, .xlsm, .xlsb, .csv, .ods, .ots, .xltx, .xltm, .tsv ")
+  @ApiModelProperty(value = "Rendering options for Spreadsheet source file formats Spreadsheet file formats include files with extensions: .xls, .xlsx, .xlsm, .xlsb, .csv, .ods, .ots, .xltx, .xltm, .tsv ")
   public SpreadsheetOptions getSpreadsheetOptions() {
     return spreadsheetOptions;
   }
@@ -208,10 +306,10 @@ public class RenderOptions {
   }
 
    /**
-   * Rendering options for CAD file formats. CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl
+   * Rendering options for CAD source file formats CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl
    * @return cadOptions
   **/
-  @ApiModelProperty(value = "Rendering options for CAD file formats. CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl")
+  @ApiModelProperty(value = "Rendering options for CAD source file formats CAD file formats include files with extensions: .dwg, .dxf, .dgn, .ifc, .stl")
   public CadOptions getCadOptions() {
     return cadOptions;
   }
@@ -226,10 +324,10 @@ public class RenderOptions {
   }
 
    /**
-   * Rendering options for Email file formats. Email file formats include files with extensions: .msg, .eml, .emlx, .ifc, .stl
+   * Rendering options for Email source file formats Email file formats include files with extensions: .msg, .eml, .emlx, .ifc, .stl
    * @return emailOptions
   **/
-  @ApiModelProperty(value = "Rendering options for Email file formats. Email file formats include files with extensions: .msg, .eml, .emlx, .ifc, .stl")
+  @ApiModelProperty(value = "Rendering options for Email source file formats Email file formats include files with extensions: .msg, .eml, .emlx, .ifc, .stl")
   public EmailOptions getEmailOptions() {
     return emailOptions;
   }
@@ -244,16 +342,88 @@ public class RenderOptions {
   }
 
    /**
-   * Rendering options for Project file formats. Project file formats include files with extensions: .mpt, .mpp
+   * Rendering options for MS Project source file formats Project file formats include files with extensions: .mpt, .mpp
    * @return projectManagementOptions
   **/
-  @ApiModelProperty(value = "Rendering options for Project file formats. Project file formats include files with extensions: .mpt, .mpp")
+  @ApiModelProperty(value = "Rendering options for MS Project source file formats Project file formats include files with extensions: .mpt, .mpp")
   public ProjectManagementOptions getProjectManagementOptions() {
     return projectManagementOptions;
   }
 
   public void setProjectManagementOptions(ProjectManagementOptions projectManagementOptions) {
     this.projectManagementOptions = projectManagementOptions;
+  }
+
+  public RenderOptions pdfDocumentOptions(PdfDocumentOptions pdfDocumentOptions) {
+    this.pdfDocumentOptions = pdfDocumentOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for PDF source file formats
+   * @return pdfDocumentOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for PDF source file formats")
+  public PdfDocumentOptions getPdfDocumentOptions() {
+    return pdfDocumentOptions;
+  }
+
+  public void setPdfDocumentOptions(PdfDocumentOptions pdfDocumentOptions) {
+    this.pdfDocumentOptions = pdfDocumentOptions;
+  }
+
+  public RenderOptions wordProcessingOptions(WordProcessingOptions wordProcessingOptions) {
+    this.wordProcessingOptions = wordProcessingOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for WordProcessing source file formats
+   * @return wordProcessingOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for WordProcessing source file formats")
+  public WordProcessingOptions getWordProcessingOptions() {
+    return wordProcessingOptions;
+  }
+
+  public void setWordProcessingOptions(WordProcessingOptions wordProcessingOptions) {
+    this.wordProcessingOptions = wordProcessingOptions;
+  }
+
+  public RenderOptions outlookOptions(OutlookOptions outlookOptions) {
+    this.outlookOptions = outlookOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for Outlook source file formats
+   * @return outlookOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for Outlook source file formats")
+  public OutlookOptions getOutlookOptions() {
+    return outlookOptions;
+  }
+
+  public void setOutlookOptions(OutlookOptions outlookOptions) {
+    this.outlookOptions = outlookOptions;
+  }
+
+  public RenderOptions archiveOptions(ArchiveOptions archiveOptions) {
+    this.archiveOptions = archiveOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for Archive source file formats
+   * @return archiveOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for Archive source file formats")
+  public ArchiveOptions getArchiveOptions() {
+    return archiveOptions;
+  }
+
+  public void setArchiveOptions(ArchiveOptions archiveOptions) {
+    this.archiveOptions = archiveOptions;
   }
 
 
@@ -268,19 +438,26 @@ public class RenderOptions {
     RenderOptions renderOptions = (RenderOptions) o;
     return Objects.equals(this.startPageNumber, renderOptions.startPageNumber) &&
         Objects.equals(this.countPagesToRender, renderOptions.countPagesToRender) &&
+        Objects.equals(this.pagesToRender, renderOptions.pagesToRender) &&
+        Objects.equals(this.pageRotations, renderOptions.pageRotations) &&
         Objects.equals(this.defaultFontName, renderOptions.defaultFontName) &&
         Objects.equals(this.defaultEncoding, renderOptions.defaultEncoding) &&
         Objects.equals(this.renderComments, renderOptions.renderComments) &&
+        Objects.equals(this.renderNotes, renderOptions.renderNotes) &&
         Objects.equals(this.renderHiddenPages, renderOptions.renderHiddenPages) &&
         Objects.equals(this.spreadsheetOptions, renderOptions.spreadsheetOptions) &&
         Objects.equals(this.cadOptions, renderOptions.cadOptions) &&
         Objects.equals(this.emailOptions, renderOptions.emailOptions) &&
-        Objects.equals(this.projectManagementOptions, renderOptions.projectManagementOptions);
+        Objects.equals(this.projectManagementOptions, renderOptions.projectManagementOptions) &&
+        Objects.equals(this.pdfDocumentOptions, renderOptions.pdfDocumentOptions) &&
+        Objects.equals(this.wordProcessingOptions, renderOptions.wordProcessingOptions) &&
+        Objects.equals(this.outlookOptions, renderOptions.outlookOptions) &&
+        Objects.equals(this.archiveOptions, renderOptions.archiveOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startPageNumber, countPagesToRender, defaultFontName, defaultEncoding, renderComments, renderHiddenPages, spreadsheetOptions, cadOptions, emailOptions, projectManagementOptions);
+    return Objects.hash(startPageNumber, countPagesToRender, pagesToRender, pageRotations, defaultFontName, defaultEncoding, renderComments, renderNotes, renderHiddenPages, spreadsheetOptions, cadOptions, emailOptions, projectManagementOptions, pdfDocumentOptions, wordProcessingOptions, outlookOptions, archiveOptions);
   }
 
 
@@ -291,14 +468,21 @@ public class RenderOptions {
     
     sb.append("    startPageNumber: ").append(toIndentedString(startPageNumber)).append("\n");
     sb.append("    countPagesToRender: ").append(toIndentedString(countPagesToRender)).append("\n");
+    sb.append("    pagesToRender: ").append(toIndentedString(pagesToRender)).append("\n");
+    sb.append("    pageRotations: ").append(toIndentedString(pageRotations)).append("\n");
     sb.append("    defaultFontName: ").append(toIndentedString(defaultFontName)).append("\n");
     sb.append("    defaultEncoding: ").append(toIndentedString(defaultEncoding)).append("\n");
     sb.append("    renderComments: ").append(toIndentedString(renderComments)).append("\n");
+    sb.append("    renderNotes: ").append(toIndentedString(renderNotes)).append("\n");
     sb.append("    renderHiddenPages: ").append(toIndentedString(renderHiddenPages)).append("\n");
     sb.append("    spreadsheetOptions: ").append(toIndentedString(spreadsheetOptions)).append("\n");
     sb.append("    cadOptions: ").append(toIndentedString(cadOptions)).append("\n");
     sb.append("    emailOptions: ").append(toIndentedString(emailOptions)).append("\n");
     sb.append("    projectManagementOptions: ").append(toIndentedString(projectManagementOptions)).append("\n");
+    sb.append("    pdfDocumentOptions: ").append(toIndentedString(pdfDocumentOptions)).append("\n");
+    sb.append("    wordProcessingOptions: ").append(toIndentedString(wordProcessingOptions)).append("\n");
+    sb.append("    outlookOptions: ").append(toIndentedString(outlookOptions)).append("\n");
+    sb.append("    archiveOptions: ").append(toIndentedString(archiveOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

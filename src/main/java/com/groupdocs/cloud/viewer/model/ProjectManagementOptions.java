@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ProjectManagementOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,11 +43,121 @@ import org.threeten.bp.OffsetDateTime;
  */
 @ApiModel(description = "Rendering options for Project file formats. Project file formats include files with extensions: .mpt, .mpp")
 public class ProjectManagementOptions {
+  /**
+   * The size of the page.
+   */
+  @JsonAdapter(PageSizeEnum.Adapter.class)
+  public enum PageSizeEnum {
+    UNSPECIFIED("Unspecified"),
+    
+    LETTER("Letter"),
+    
+    LEDGER("Ledger"),
+    
+    A0("A0"),
+    
+    A1("A1"),
+    
+    A2("A2"),
+    
+    A3("A3"),
+    
+    A4("A4");
+
+    private String value;
+
+    PageSizeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PageSizeEnum fromValue(String text) {
+      for (PageSizeEnum b : PageSizeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PageSizeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PageSizeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PageSizeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PageSizeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("pageSize")
-  private String pageSize = null;
+  private PageSizeEnum pageSize = null;
+
+  /**
+   * The time unit to use as minimal point.
+   */
+  @JsonAdapter(TimeUnitEnum.Adapter.class)
+  public enum TimeUnitEnum {
+    UNSPECIFIED("Unspecified"),
+    
+    DAYS("Days"),
+    
+    THIRDSOFMONTHS("ThirdsOfMonths"),
+    
+    MONTHS("Months");
+
+    private String value;
+
+    TimeUnitEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TimeUnitEnum fromValue(String text) {
+      for (TimeUnitEnum b : TimeUnitEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TimeUnitEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TimeUnitEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TimeUnitEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TimeUnitEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
 
   @SerializedName("timeUnit")
-  private String timeUnit = null;
+  private TimeUnitEnum timeUnit = null;
 
   @SerializedName("startDate")
   private OffsetDateTime startDate = null;
@@ -55,39 +165,39 @@ public class ProjectManagementOptions {
   @SerializedName("endDate")
   private OffsetDateTime endDate = null;
 
-  public ProjectManagementOptions pageSize(String pageSize) {
+  public ProjectManagementOptions pageSize(PageSizeEnum pageSize) {
     this.pageSize = pageSize;
     return this;
   }
 
    /**
-   * The size of the page. Supported values {Unknown|Letter|Ledger|A0|A1|A2|A3}: 1. Unknown - the default, unspecified page size. 2. Letter - the size of the Letter page in points is 792x612. 3. Ledger - the size of the Letter page in points is 1224x792. 4. A0 - the size of the A0 page in points is 3371x2384. 5. A1 - the size of the A1 page in points is 2384x1685. 6. A2 - the size of the A2 page in points is 1684x1190. 7. A3 - the size of the A3 page in points is 1190x842. 8. A4 - the size of the A4 page in points is 842x595.
+   * The size of the page.
    * @return pageSize
   **/
-  @ApiModelProperty(value = "The size of the page. Supported values {Unknown|Letter|Ledger|A0|A1|A2|A3}: 1. Unknown - the default, unspecified page size. 2. Letter - the size of the Letter page in points is 792x612. 3. Ledger - the size of the Letter page in points is 1224x792. 4. A0 - the size of the A0 page in points is 3371x2384. 5. A1 - the size of the A1 page in points is 2384x1685. 6. A2 - the size of the A2 page in points is 1684x1190. 7. A3 - the size of the A3 page in points is 1190x842. 8. A4 - the size of the A4 page in points is 842x595.")
-  public String getPageSize() {
+  @ApiModelProperty(required = true, value = "The size of the page.")
+  public PageSizeEnum getPageSize() {
     return pageSize;
   }
 
-  public void setPageSize(String pageSize) {
+  public void setPageSize(PageSizeEnum pageSize) {
     this.pageSize = pageSize;
   }
 
-  public ProjectManagementOptions timeUnit(String timeUnit) {
+  public ProjectManagementOptions timeUnit(TimeUnitEnum timeUnit) {
     this.timeUnit = timeUnit;
     return this;
   }
 
    /**
-   * The time unit to use as minimal point. Supported values {Unknown|Days|ThirdsOfMonths|Months}: 1. Unknown - unknown, unspecified time scale. 2. Days - one day interval. 3. ThirdsOfMonths - one third of the month. 4. Months - one month interval.
+   * The time unit to use as minimal point.
    * @return timeUnit
   **/
-  @ApiModelProperty(value = "The time unit to use as minimal point. Supported values {Unknown|Days|ThirdsOfMonths|Months}: 1. Unknown - unknown, unspecified time scale. 2. Days - one day interval. 3. ThirdsOfMonths - one third of the month. 4. Months - one month interval.")
-  public String getTimeUnit() {
+  @ApiModelProperty(required = true, value = "The time unit to use as minimal point.")
+  public TimeUnitEnum getTimeUnit() {
     return timeUnit;
   }
 
-  public void setTimeUnit(String timeUnit) {
+  public void setTimeUnit(TimeUnitEnum timeUnit) {
     this.timeUnit = timeUnit;
   }
 

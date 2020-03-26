@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="SpreadsheetOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -65,6 +65,60 @@ public class SpreadsheetOptions {
 
   @SerializedName("renderPrintAreaOnly")
   private Boolean renderPrintAreaOnly = null;
+
+  /**
+   * The text overflow mode for rendering spreadsheet documents into HTML
+   */
+  @JsonAdapter(TextOverflowModeEnum.Adapter.class)
+  public enum TextOverflowModeEnum {
+    OVERLAY("Overlay"),
+    
+    OVERLAYIFNEXTISEMPTY("OverlayIfNextIsEmpty"),
+    
+    AUTOFITCOLUMN("AutoFitColumn"),
+    
+    HIDETEXT("HideText");
+
+    private String value;
+
+    TextOverflowModeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TextOverflowModeEnum fromValue(String text) {
+      for (TextOverflowModeEnum b : TextOverflowModeEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<TextOverflowModeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TextOverflowModeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TextOverflowModeEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return TextOverflowModeEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
+  @SerializedName("textOverflowMode")
+  private TextOverflowModeEnum textOverflowMode = null;
 
   public SpreadsheetOptions paginateSheets(Boolean paginateSheets) {
     this.paginateSheets = paginateSheets;
@@ -210,6 +264,24 @@ public class SpreadsheetOptions {
     this.renderPrintAreaOnly = renderPrintAreaOnly;
   }
 
+  public SpreadsheetOptions textOverflowMode(TextOverflowModeEnum textOverflowMode) {
+    this.textOverflowMode = textOverflowMode;
+    return this;
+  }
+
+   /**
+   * The text overflow mode for rendering spreadsheet documents into HTML
+   * @return textOverflowMode
+  **/
+  @ApiModelProperty(required = true, value = "The text overflow mode for rendering spreadsheet documents into HTML")
+  public TextOverflowModeEnum getTextOverflowMode() {
+    return textOverflowMode;
+  }
+
+  public void setTextOverflowMode(TextOverflowModeEnum textOverflowMode) {
+    this.textOverflowMode = textOverflowMode;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -227,12 +299,13 @@ public class SpreadsheetOptions {
         Objects.equals(this.renderEmptyColumns, spreadsheetOptions.renderEmptyColumns) &&
         Objects.equals(this.renderHiddenRows, spreadsheetOptions.renderHiddenRows) &&
         Objects.equals(this.renderHiddenColumns, spreadsheetOptions.renderHiddenColumns) &&
-        Objects.equals(this.renderPrintAreaOnly, spreadsheetOptions.renderPrintAreaOnly);
+        Objects.equals(this.renderPrintAreaOnly, spreadsheetOptions.renderPrintAreaOnly) &&
+        Objects.equals(this.textOverflowMode, spreadsheetOptions.textOverflowMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paginateSheets, countRowsPerPage, renderGridLines, renderEmptyRows, renderEmptyColumns, renderHiddenRows, renderHiddenColumns, renderPrintAreaOnly);
+    return Objects.hash(paginateSheets, countRowsPerPage, renderGridLines, renderEmptyRows, renderEmptyColumns, renderHiddenRows, renderHiddenColumns, renderPrintAreaOnly, textOverflowMode);
   }
 
 
@@ -249,6 +322,7 @@ public class SpreadsheetOptions {
     sb.append("    renderHiddenRows: ").append(toIndentedString(renderHiddenRows)).append("\n");
     sb.append("    renderHiddenColumns: ").append(toIndentedString(renderHiddenColumns)).append("\n");
     sb.append("    renderPrintAreaOnly: ").append(toIndentedString(renderPrintAreaOnly)).append("\n");
+    sb.append("    textOverflowMode: ").append(toIndentedString(textOverflowMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

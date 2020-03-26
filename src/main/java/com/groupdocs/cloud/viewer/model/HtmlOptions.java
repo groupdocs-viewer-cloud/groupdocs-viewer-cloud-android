@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="HtmlOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,14 +33,21 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.groupdocs.cloud.viewer.model.ArchiveOptions;
 import com.groupdocs.cloud.viewer.model.CadOptions;
 import com.groupdocs.cloud.viewer.model.EmailOptions;
+import com.groupdocs.cloud.viewer.model.OutlookOptions;
+import com.groupdocs.cloud.viewer.model.PageRotation;
+import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.RenderOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
+import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Options for rendering document into HTML
@@ -55,6 +62,15 @@ public class HtmlOptions extends RenderOptions {
 
   @SerializedName("isResponsive")
   private Boolean isResponsive = null;
+
+  @SerializedName("minify")
+  private Boolean minify = null;
+
+  @SerializedName("excludeFonts")
+  private Boolean excludeFonts = null;
+
+  @SerializedName("fontsToExclude")
+  private List<String> fontsToExclude = null;
 
   public HtmlOptions externalResources(Boolean externalResources) {
     this.externalResources = externalResources;
@@ -110,6 +126,68 @@ public class HtmlOptions extends RenderOptions {
     this.isResponsive = isResponsive;
   }
 
+  public HtmlOptions minify(Boolean minify) {
+    this.minify = minify;
+    return this;
+  }
+
+   /**
+   * Enables HTML content and HTML resources minification
+   * @return minify
+  **/
+  @ApiModelProperty(required = true, value = "Enables HTML content and HTML resources minification")
+  public Boolean getMinify() {
+    return minify;
+  }
+
+  public void setMinify(Boolean minify) {
+    this.minify = minify;
+  }
+
+  public HtmlOptions excludeFonts(Boolean excludeFonts) {
+    this.excludeFonts = excludeFonts;
+    return this;
+  }
+
+   /**
+   * When enabled prevents adding any fonts into HTML document             
+   * @return excludeFonts
+  **/
+  @ApiModelProperty(required = true, value = "When enabled prevents adding any fonts into HTML document             ")
+  public Boolean getExcludeFonts() {
+    return excludeFonts;
+  }
+
+  public void setExcludeFonts(Boolean excludeFonts) {
+    this.excludeFonts = excludeFonts;
+  }
+
+  public HtmlOptions fontsToExclude(List<String> fontsToExclude) {
+    this.fontsToExclude = fontsToExclude;
+    return this;
+  }
+
+  public HtmlOptions addFontsToExcludeItem(String fontsToExcludeItem) {
+    if (this.fontsToExclude == null) {
+      this.fontsToExclude = new ArrayList<String>();
+    }
+    this.fontsToExclude.add(fontsToExcludeItem);
+    return this;
+  }
+
+   /**
+   * This option is supported for presentations only. The list of font names, to exclude from HTML document             
+   * @return fontsToExclude
+  **/
+  @ApiModelProperty(value = "This option is supported for presentations only. The list of font names, to exclude from HTML document             ")
+  public List<String> getFontsToExclude() {
+    return fontsToExclude;
+  }
+
+  public void setFontsToExclude(List<String> fontsToExclude) {
+    this.fontsToExclude = fontsToExclude;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -123,12 +201,15 @@ public class HtmlOptions extends RenderOptions {
     return Objects.equals(this.externalResources, htmlOptions.externalResources) &&
         Objects.equals(this.resourcePath, htmlOptions.resourcePath) &&
         Objects.equals(this.isResponsive, htmlOptions.isResponsive) &&
+        Objects.equals(this.minify, htmlOptions.minify) &&
+        Objects.equals(this.excludeFonts, htmlOptions.excludeFonts) &&
+        Objects.equals(this.fontsToExclude, htmlOptions.fontsToExclude) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalResources, resourcePath, isResponsive, super.hashCode());
+    return Objects.hash(externalResources, resourcePath, isResponsive, minify, excludeFonts, fontsToExclude, super.hashCode());
   }
 
 
@@ -140,6 +221,9 @@ public class HtmlOptions extends RenderOptions {
     sb.append("    externalResources: ").append(toIndentedString(externalResources)).append("\n");
     sb.append("    resourcePath: ").append(toIndentedString(resourcePath)).append("\n");
     sb.append("    isResponsive: ").append(toIndentedString(isResponsive)).append("\n");
+    sb.append("    minify: ").append(toIndentedString(minify)).append("\n");
+    sb.append("    excludeFonts: ").append(toIndentedString(excludeFonts)).append("\n");
+    sb.append("    fontsToExclude: ").append(toIndentedString(fontsToExclude)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="DeleteViewOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,6 +46,9 @@ public class DeleteViewOptions {
   @SerializedName("fileInfo")
   private FileInfo fileInfo = null;
 
+  @SerializedName("outputPath")
+  private String outputPath = null;
+
   public DeleteViewOptions fileInfo(FileInfo fileInfo) {
     this.fileInfo = fileInfo;
     return this;
@@ -64,6 +67,24 @@ public class DeleteViewOptions {
     this.fileInfo = fileInfo;
   }
 
+  public DeleteViewOptions outputPath(String outputPath) {
+    this.outputPath = outputPath;
+    return this;
+  }
+
+   /**
+   * The output path Default value is &#39;viewer\\{input file path}_{file extension}\\&#39;
+   * @return outputPath
+  **/
+  @ApiModelProperty(value = "The output path Default value is 'viewer\\{input file path}_{file extension}\\'")
+  public String getOutputPath() {
+    return outputPath;
+  }
+
+  public void setOutputPath(String outputPath) {
+    this.outputPath = outputPath;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -74,12 +95,13 @@ public class DeleteViewOptions {
       return false;
     }
     DeleteViewOptions deleteViewOptions = (DeleteViewOptions) o;
-    return Objects.equals(this.fileInfo, deleteViewOptions.fileInfo);
+    return Objects.equals(this.fileInfo, deleteViewOptions.fileInfo) &&
+        Objects.equals(this.outputPath, deleteViewOptions.outputPath);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fileInfo);
+    return Objects.hash(fileInfo, outputPath);
   }
 
 
@@ -89,6 +111,7 @@ public class DeleteViewOptions {
     sb.append("class DeleteViewOptions {\n");
     
     sb.append("    fileInfo: ").append(toIndentedString(fileInfo)).append("\n");
+    sb.append("    outputPath: ").append(toIndentedString(outputPath)).append("\n");
     sb.append("}");
     return sb.toString();
   }

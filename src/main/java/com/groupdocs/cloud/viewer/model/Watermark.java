@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="Watermark.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,8 +48,65 @@ public class Watermark {
   @SerializedName("color")
   private String color = null;
 
+  /**
+   * Watermark position. Default value is \&quot;Diagonal\&quot;.
+   */
+  @JsonAdapter(PositionEnum.Adapter.class)
+  public enum PositionEnum {
+    DIAGONAL("Diagonal"),
+    
+    TOPLEFT("TopLeft"),
+    
+    TOPCENTER("TopCenter"),
+    
+    TOPRIGHT("TopRight"),
+    
+    BOTTOMLEFT("BottomLeft"),
+    
+    BOTTOMCENTER("BottomCenter"),
+    
+    BOTTOMRIGHT("BottomRight");
+
+    private String value;
+
+    PositionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PositionEnum fromValue(String text) {
+      for (PositionEnum b : PositionEnum.values()) {
+        if (String.valueOf(b.value).equals(text)) {
+          return b;
+        }
+      }
+      return null;
+    }
+
+    public static class Adapter extends TypeAdapter<PositionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PositionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PositionEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return PositionEnum.fromValue(String.valueOf(value));
+      }
+    }
+  }
+
   @SerializedName("position")
-  private String position = null;
+  private PositionEnum position = null;
 
   @SerializedName("size")
   private Integer size = null;
@@ -90,21 +147,21 @@ public class Watermark {
     this.color = color;
   }
 
-  public Watermark position(String position) {
+  public Watermark position(PositionEnum position) {
     this.position = position;
     return this;
   }
 
    /**
-   * Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \&quot;Diagonal\&quot;.
+   * Watermark position. Default value is \&quot;Diagonal\&quot;.
    * @return position
   **/
-  @ApiModelProperty(value = "Watermark position. Supported positions {Diagonal|TopLeft|TopCenter|TopRight|BottomLeft|BottomCenter|BottomRight}. Default value is \"Diagonal\".")
-  public String getPosition() {
+  @ApiModelProperty(required = true, value = "Watermark position. Default value is \"Diagonal\".")
+  public PositionEnum getPosition() {
     return position;
   }
 
-  public void setPosition(String position) {
+  public void setPosition(PositionEnum position) {
     this.position = position;
   }
 

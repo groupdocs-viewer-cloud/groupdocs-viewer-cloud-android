@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -227,8 +227,8 @@ public class ViewerGetInfoApiTests extends BaseApiTest {
         viewOptions.setFileInfo(TestFiles.ProjectMpp.ToFileInfo());
         RenderOptions renderOptions = new RenderOptions();
         ProjectManagementOptions projectManagementOptions = new ProjectManagementOptions();
-        projectManagementOptions.setPageSize("Unknown");
-        projectManagementOptions.setTimeUnit("Months");
+        projectManagementOptions.setPageSize(ProjectManagementOptions.PageSizeEnum.UNSPECIFIED);
+        projectManagementOptions.setTimeUnit(ProjectManagementOptions.TimeUnitEnum.MONTHS);
         projectManagementOptions.setStartDate(OffsetDateTime.parse("2008-07-01T00:00:00Z"));
         projectManagementOptions.setEndDate(OffsetDateTime.parse("2008-07-31T00:00:00Z"));
         renderOptions.setProjectManagementOptions(projectManagementOptions);
@@ -238,7 +238,7 @@ public class ViewerGetInfoApiTests extends BaseApiTest {
         // Act & Assert
         InfoResult infoResult = infoApi.getInfo(request);
 
-        assertEquals(2, infoResult.getPages().size());
+        assertEquals(1, infoResult.getPages().size());
     }
 
     @Test
@@ -260,7 +260,12 @@ public class ViewerGetInfoApiTests extends BaseApiTest {
         assertEquals(0, infoResult.getAttachments().size());
         PageInfo page = infoResult.getPages().get(0);
         assertEquals(1, (int)page.getNumber());
-        assertTrue(page.getRows().size() > 0);
+        assertTrue(page.getLines().size() > 0);
+
+        Line line = page.getLines().get(0);
+        assertEquals((Double) 85.05, (Double)line.getX());
+
     }    
+      
 }
 

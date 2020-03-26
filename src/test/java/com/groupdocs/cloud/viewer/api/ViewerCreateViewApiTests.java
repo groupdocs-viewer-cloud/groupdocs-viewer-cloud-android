@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,6 +32,7 @@ import static org.junit.Assert.*;
 import com.groupdocs.cloud.viewer.client.ApiException;
 import com.groupdocs.cloud.viewer.model.requests.*;
 import com.groupdocs.cloud.viewer.model.*;
+import com.groupdocs.cloud.viewer.model.ProjectManagementOptions.TimeUnitEnum;
 import com.groupdocs.cloud.viewer.model.ViewOptions.ViewFormatEnum;
 
 import org.junit.Test;
@@ -234,8 +235,8 @@ public class ViewerCreateViewApiTests extends BaseApiTest {
         viewOptions.setFileInfo(TestFiles.ProjectMpp.ToFileInfo());
         RenderOptions renderOptions = new RenderOptions();
         ProjectManagementOptions projectManagementOptions = new ProjectManagementOptions();
-        projectManagementOptions.setPageSize("Unknown");
-        projectManagementOptions.setTimeUnit("Months");
+        projectManagementOptions.setPageSize(ProjectManagementOptions.PageSizeEnum.UNSPECIFIED);
+        projectManagementOptions.setTimeUnit(TimeUnitEnum.MONTHS);
         projectManagementOptions.setStartDate(OffsetDateTime.parse("2008-07-01T00:00:00Z"));
         projectManagementOptions.setEndDate(OffsetDateTime.parse("2008-07-31T00:00:00Z"));
         renderOptions.setProjectManagementOptions(projectManagementOptions);
@@ -245,7 +246,7 @@ public class ViewerCreateViewApiTests extends BaseApiTest {
         // Act & Assert
         ViewResult viewResult =viewApi.createView(request);
 
-        assertEquals(2, viewResult.getPages().size());
+        assertEquals(1, viewResult.getPages().size());
     }
 
     @Test

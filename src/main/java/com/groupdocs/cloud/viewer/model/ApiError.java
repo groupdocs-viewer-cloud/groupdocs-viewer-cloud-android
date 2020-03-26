@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ApiError.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,7 +39,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @ApiModel(description = "Describes API error.")
 public class ApiError {
-  @SerializedName("Error")
+  @SerializedName("error")
   private Error error = null;
 
   public ApiError error(Error error) {

@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PageInfo.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,7 +33,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.groupdocs.cloud.viewer.model.Row;
+import com.groupdocs.cloud.viewer.model.Line;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -54,8 +54,11 @@ public class PageInfo {
   @SerializedName("height")
   private Integer height = null;
 
-  @SerializedName("rows")
-  private List<Row> rows = null;
+  @SerializedName("visible")
+  private Boolean visible = null;
+
+  @SerializedName("lines")
+  private List<Line> lines = null;
 
   public PageInfo number(Integer number) {
     this.number = number;
@@ -63,10 +66,10 @@ public class PageInfo {
   }
 
    /**
-   * Page number
+   * The page number
    * @return number
   **/
-  @ApiModelProperty(required = true, value = "Page number")
+  @ApiModelProperty(required = true, value = "The page number")
   public Integer getNumber() {
     return number;
   }
@@ -81,10 +84,10 @@ public class PageInfo {
   }
 
    /**
-   * Image Page width
+   * The width of the page in pixels when viewing as JPG or PNG
    * @return width
   **/
-  @ApiModelProperty(required = true, value = "Image Page width")
+  @ApiModelProperty(required = true, value = "The width of the page in pixels when viewing as JPG or PNG")
   public Integer getWidth() {
     return width;
   }
@@ -99,10 +102,10 @@ public class PageInfo {
   }
 
    /**
-   * Image Page height
+   * The height of the page in pixels when viewing as JPG or PNG
    * @return height
   **/
-  @ApiModelProperty(required = true, value = "Image Page height")
+  @ApiModelProperty(required = true, value = "The height of the page in pixels when viewing as JPG or PNG")
   public Integer getHeight() {
     return height;
   }
@@ -111,30 +114,48 @@ public class PageInfo {
     this.height = height;
   }
 
-  public PageInfo rows(List<Row> rows) {
-    this.rows = rows;
-    return this;
-  }
-
-  public PageInfo addRowsItem(Row rowsItem) {
-    if (this.rows == null) {
-      this.rows = new ArrayList<Row>();
-    }
-    this.rows.add(rowsItem);
+  public PageInfo visible(Boolean visible) {
+    this.visible = visible;
     return this;
   }
 
    /**
-   * Image Page rows
-   * @return rows
+   * The page visibility indicator
+   * @return visible
   **/
-  @ApiModelProperty(value = "Image Page rows")
-  public List<Row> getRows() {
-    return rows;
+  @ApiModelProperty(required = true, value = "The page visibility indicator")
+  public Boolean getVisible() {
+    return visible;
   }
 
-  public void setRows(List<Row> rows) {
-    this.rows = rows;
+  public void setVisible(Boolean visible) {
+    this.visible = visible;
+  }
+
+  public PageInfo lines(List<Line> lines) {
+    this.lines = lines;
+    return this;
+  }
+
+  public PageInfo addLinesItem(Line linesItem) {
+    if (this.lines == null) {
+      this.lines = new ArrayList<Line>();
+    }
+    this.lines.add(linesItem);
+    return this;
+  }
+
+   /**
+   * The lines contained by the page when viewing as JPG or PNG with enabled Text Extraction
+   * @return lines
+  **/
+  @ApiModelProperty(value = "The lines contained by the page when viewing as JPG or PNG with enabled Text Extraction")
+  public List<Line> getLines() {
+    return lines;
+  }
+
+  public void setLines(List<Line> lines) {
+    this.lines = lines;
   }
 
 
@@ -150,12 +171,13 @@ public class PageInfo {
     return Objects.equals(this.number, pageInfo.number) &&
         Objects.equals(this.width, pageInfo.width) &&
         Objects.equals(this.height, pageInfo.height) &&
-        Objects.equals(this.rows, pageInfo.rows);
+        Objects.equals(this.visible, pageInfo.visible) &&
+        Objects.equals(this.lines, pageInfo.lines);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, width, height, rows);
+    return Objects.hash(number, width, height, visible, lines);
   }
 
 
@@ -167,7 +189,8 @@ public class PageInfo {
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    width: ").append(toIndentedString(width)).append("\n");
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("    rows: ").append(toIndentedString(rows)).append("\n");
+    sb.append("    visible: ").append(toIndentedString(visible)).append("\n");
+    sb.append("    lines: ").append(toIndentedString(lines)).append("\n");
     sb.append("}");
     return sb.toString();
   }

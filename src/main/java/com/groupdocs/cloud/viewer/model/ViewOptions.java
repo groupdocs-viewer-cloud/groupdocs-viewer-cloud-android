@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ViewOptions.java">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2020 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,7 +49,7 @@ public class ViewOptions {
   private FileInfo fileInfo = null;
 
   /**
-   * View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.
+   * View format (HTML, PNG, JPG, or PDF) Default value is HTML.
    */
   @JsonAdapter(ViewFormatEnum.Adapter.class)
   public enum ViewFormatEnum {
@@ -58,8 +58,6 @@ public class ViewOptions {
     PNG("PNG"),
     
     JPG("JPG"),
-    
-    BMP("BMP"),
     
     PDF("PDF");
 
@@ -140,10 +138,10 @@ public class ViewOptions {
   }
 
    /**
-   * View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.
+   * View format (HTML, PNG, JPG, or PDF) Default value is HTML.
    * @return viewFormat
   **/
-  @ApiModelProperty(required = true, value = "View format (HTML, PNG, JPG, BMP or PDF) Default value is HTML.")
+  @ApiModelProperty(required = true, value = "View format (HTML, PNG, JPG, or PDF) Default value is HTML.")
   public ViewFormatEnum getViewFormat() {
     return viewFormat;
   }
@@ -158,10 +156,10 @@ public class ViewOptions {
   }
 
    /**
-   * The output path. Default value is &#39;viewer\\{input file path}_{file extension}\\&#39;
+   * The output path Default value is &#39;viewer\\{input file path}_{file extension}\\&#39;
    * @return outputPath
   **/
-  @ApiModelProperty(value = "The output path. Default value is 'viewer\\{input file path}_{file extension}\\'")
+  @ApiModelProperty(value = "The output path Default value is 'viewer\\{input file path}_{file extension}\\'")
   public String getOutputPath() {
     return outputPath;
   }
