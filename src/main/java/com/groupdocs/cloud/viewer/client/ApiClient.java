@@ -97,7 +97,7 @@ public class ApiClient {
         this.json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("java-sdk/20.3");
+        setUserAgent("java-sdk/20.5");
 
         // Set connection timeout
         setConnectTimeout(configuration.getTimeout());

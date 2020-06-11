@@ -5,7 +5,7 @@
     <artifactId>groupdocs-viewer-cloud</artifactId>
     <packaging>jar</packaging>
     <name>groupdocs-viewer-cloud</name>
-    <version>20.3</version>
+    <version>20.5</version>
     <url>https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-java</url>
     <description>Java library for communicating with the GroupDocs.Viewer Cloud API</description>
     <scm>
