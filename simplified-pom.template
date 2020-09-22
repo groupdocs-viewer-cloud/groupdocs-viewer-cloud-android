@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.groupdocs</groupId>
-    <artifactId>groupdocs-viewer-cloud</artifactId>
+    <artifactId>groupdocs-viewer-cloud-android</artifactId>
     <version>{VERSION}</version>
     <packaging>jar</packaging>
 
-    <name>groupdocs-viewer-cloud</name>
+    <name>groupdocs-viewer-cloud-android</name>
     <description>Java library for communicating with the GroupDocs.Viewer Cloud API</description>
-    <url>https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-java</url>
+    <url>https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android</url>
 
     <licenses>
         <license>
@@ -30,9 +30,9 @@
 
     <repositories>
         <repository>
-            <id>maven.aspose.cloud</id>
-            <name>maven.aspose.cloud</name>
-            <url>https://repository.aspose.cloud/repo/</url>
+            <id>maven.groupdocs.cloud</id>
+            <name>maven.groupdocs.cloud</name>
+            <url>https://repository.groupdocs.cloud/repo/</url>
         </repository>
     </repositories>
         
