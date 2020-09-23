@@ -1,4 +1,4 @@
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android) [![GitHub stars](https://img.shields.io/github/stars/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android/stargazers) [![GitHub license](https://img.shields.io/github/license/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android) [![GitHub license](https://img.shields.io/github/license/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)
 
 # Android Cloud REST API for Document Rendering
 
@@ -41,7 +41,7 @@ Please visit [GroupDocs.Viewer Cloud 20.5 Release Notes](https://docs.groupdocs.
 
 ## Get Started with GroupDocs.Viewer Cloud SDK for Android
 
-Create an account at [Aspose for Cloud](https://dashboard.aspose.cloud/#/apps) and get your application information for authentication.
+Create an account at [GroupDocs for Cloud](https://dashboard.groupdocs.cloud/#/apps) and get your application information for authentication.
 
 ### Installation
 
