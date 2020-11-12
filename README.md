@@ -1,47 +1,49 @@
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android) [![GitHub license](https://img.shields.io/github/license/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)
+![](https://img.shields.io/badge/api-v2.0-lightgrey) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android) [![GitHub license](https://img.shields.io/github/license/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)
 
-# Android Cloud REST API for Document Rendering
+# Android Cloud SDK for Document Rendering
 
-This repository contains [GroupDocs.Viewer Cloud SDK for Android](https://products.groupdocs.cloud/viewer/android) source code. This SDK allows you to work with GroupDocs.Viewer Cloud REST APIs in your Android applications via Java language.
+[GroupDocs.Viewer Cloud SDK for Android](https://products.groupdocs.cloud/viewer/android) wraps GroupDocs.Viewer RESTful APIs so you may integrate Document Viewing features in your own apps with zero initial cost.
 
-## Cloud Document Viewer in a Nutshell
+GroupDocs.Viewer REST API allows the developers to view & render a number of popular files formats including Word documents, Excel spreadsheets, PowerPoint presentations, CAD drawings, Visio diagram, PDF, OpenDocument formats, emails & images.
 
-- Ability to [render 80+ file formats](https://docs.groupdocs.cloud/viewer/supported-document-formats/) including documents, images & spreadsheets.
+## Document Viewer REST API in a Nutshell
+
+- [Render 80+ file formats](https://docs.groupdocs.cloud/viewer/supported-document-formats/) including documents, images & spreadsheets.
 - Support for HTML minification, [font exclusion](https://docs.groupdocs.cloud/viewer/html-viewer-exclude-fonts/) & responsive layout.
-- Adjust [image size, JPG quality & text overlay](https://docs.groupdocs.cloud/viewer/image-viewer/) over images.
+- Adjust [image size, JPG quality & text overlay](https://docs.groupdocs.cloud/viewer/image-viewer/) for image rendering.
 - Secure PDF documents by settings permissions and applying password.
-- [Render](https://docs.groupdocs.cloud/viewer/common-rendering-options/) comments, notes, hidden pages, selected pages & custom fonts.
-- Apply watermark, flip/rotate/reorder pages & replace missing fonts.
-- Split CAD drawing into tiles & render single/all layouts.
-- Adjust time unit & render time interval of MS Project files.
+- [Render documents](https://docs.groupdocs.cloud/viewer/common-rendering-options/) with comments, notes, hidden pages, selected pages & custom fonts.
+- Apply watermark, flip, rotate and reorder pages.
+- Split CAD drawing into tiles & render single or all layouts.
 - [Render Outlook](https://docs.groupdocs.cloud/viewer/rendering-outlook-data-files/) data file folder & limit count of items to render.
-- Ability to render grid lines, hidden columns/rows & print areas of [Excel sheets](https://docs.groupdocs.cloud/viewer/rendering-spreadsheets/).
-- Support to render tracked changes in MS Word documents.
+- Render grid lines, hidden columns or rows & print areas of [Excel Sheets](https://docs.groupdocs.cloud/viewer/rendering-spreadsheets/).
 
-### Supported File Formats
+Check out the [Developer's Guide](https://docs.groupdocs.cloud/viewer/developer-guide/) to know more about GroupDocs.Viewer REST API.
 
-**Word Processing:** DOC, DOCM, DOCX, DOT, DOTM, DOTX, ODT, OTT, RTF, TXT
-**Spreadsheet:** CSV, ODS, OTS, TSV, XLS, XLSB, XLSM, XLSX
-**Presentation:** ODP, OTP, POTM, POTX, PPS, PPSM, PPSX, PPT, PPTM, PPTX
-**Project Management:** MPP, MPT
-**Email:** EML, EMLX, MSG, OST, PST
-**AutoCAD:** DGN, DWF, DWG, DXF, IFC, STL
-**Markup:** HTML, MHT, MHTML
-**Diagram:** VDW, VDX, VSD, VSDM, VSDX, VSS, VSSM, VSSX, VST, VSTM, VSTX, VSX, VTX
-**Note:** ONE
-**Page Layout:** PDF, TEX, XPS
-**Image:** BMP, CGM, DCM, DJVU, DNG, EMF, EPS, GIF, ICO, JP2, JPG, JPEG, ODG, PCL, PNG, PS, PSD, SVG, TIF, TIFF, WEBP, WMF
-**eBook:** EPUB, MOBI
+## Microsoft File Formats
 
-## New Features & Enhancements ![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android)
+**Microsoft Word:** DOC, DOCM, DOCX, DOT, DOTM, DOTX\
+**Microsoft Excel:** XLS, XLSX, XLSB, XLSM\
+**Microsoft PowerPoint:** PPTX, PPTM, PPT, PPSX, PPSM, PPS, POTX, POTM\
+**Microsoft Project:** MPP, MPT\
+**Microsoft Outlook:** MSG, OST, PST\
+**Microsoft Visio:** VDW, VDX, VSD, VSDM, VSDX, VSS, VSSM, VSSX, VST, VSTM, VSTX, VSX, VTX\
+**Microsoft OneNote:** ONE
 
-- Added support for [Docker version of GroupDocs.Viewer Cloud](https://hub.docker.com/r/groupdocs/viewer-cloud) by SDKs.
+## Other Formats
 
-Please visit [GroupDocs.Viewer Cloud 20.5 Release Notes](https://docs.groupdocs.cloud/viewer/groupdocs-viewer-cloud-20-5-release-notes/) for detailed release notes.
+**Page Layout Formats:** PDF, XPS, TEX\
+**OpenDocument:** ODT, OTT, ODS, OTS, ODP, OTP\
+**CAD:** DNG, DWF, DWG, DXF, IDC, STL\
+**Images:** BMP, CGM, DCM, DJVU, EMP, EPS, GIF, ICO, JP2, JPG, ODG, PCL, PNG, PS, PSD, SVG, TIFF, WEBP, WMF\
+**Web:** HTML, MHT, MHTML\
+**Emails:** EML, EMLX\
+**eBooks:** EPUB, MOBI\
+**Others:** TXT, RTF, CSV, TSV
 
 ## Get Started with GroupDocs.Viewer Cloud SDK for Android
 
-Create an account at [GroupDocs for Cloud](https://dashboard.groupdocs.cloud/#/apps) and get your application information for authentication.
+First create an account at [GroupDocs for Cloud](https://dashboard.groupdocs.cloud/) and get your application information. Next, follow the steps as below.
 
 ### Installation
 
@@ -70,31 +72,7 @@ dependencies {
 }
 ```
 
-Please follow the [installation](#installation) instructions and use the following Java code:
-
-```java
-//TODO: Get your AppSID and AppKey at https://dashboard.groupdocs.cloud (free registration is required).
-        String appSid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
-        String appKey = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-
-        Configuration configuration = new Configuration(appSid, appKey);
-
-        InfoApi infoApi = new InfoApi(configuration);
-
-        try {
-            FormatsResult response = infoApi.getSupportedFileFormats();
-            for (Format format : response.getFormats()) {
-                System.out.println(format.getFileFormat());
-            }
-
-        } catch (ApiException e) {
-            System.err.println("Failed to get supported file formats");
-            e.printStackTrace();
-
-        }
-```
-
-## Render Selected Pages of a DOCX File
+## Render Selected Pages of a DOCX
 
 ```java
 Configuration configuration = new Configuration(MyAppSid, MyAppKey);
@@ -113,11 +91,11 @@ viewOptions.setRenderOptions(renderOptions);
 ViewResult response = apiInstance.createView(new CreateViewRequest(viewOptions));
 ```
 
-## Other GroupDocs.Viewer Cloud SDKs
+## GroupDocs.Viewer Cloud SDKs in Popular Languages
 
-| .NET | Java | PHP | Python | Ruby | Node.js |
-|---|---|---|---|---|---|
-| [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-dotnet) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-java) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-php) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-python) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-ruby) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-node) |
-| [NuGet](https://www.nuget.org/packages/GroupDocs.Viewer-Cloud/) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-viewer-cloud) | [Composer](https://packagist.org/packages/groupdocscloud/groupdocs-viewer-cloud) | [PIP](https://pypi.org/project/groupdocs-viewer-cloud/) | [GEM](https://rubygems.org/gems/groupdocs_viewer_cloud) | [NPM](https://www.npmjs.com/package/groupdocs-viewer-cloud) |
+| .NET | Java | PHP | Python | Ruby | Node.js | Android |
+|---|---|---|---|---|---|---|
+| [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-dotnet) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-java) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-php) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-python) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-ruby)  | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-node) | [GitHub](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android) |
+| [NuGet](https://www.nuget.org/packages/GroupDocs.Viewer-Cloud/) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-viewer-cloud) | [Composer](https://packagist.org/packages/groupdocscloud/groupdocs-viewer-cloud) | [PIP](https://pypi.org/project/groupdocs-viewer-cloud/) | [GEM](https://rubygems.org/gems/groupdocs_viewer_cloud)  | [NPM](https://www.npmjs.com/package/groupdocs-viewer-cloud) | [Maven](https://repository.groupdocs.cloud/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-viewer-cloud-android) | 
 
-[Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/viewer/android) | [Docs](https://docs.groupdocs.cloud/viewer/) | [Demos](https://products.groupdocs.app/viewer/family) | [API Reference](https://apireference.groupdocs.cloud/viewer/) | [Source Code](https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-android) | [Blog](https://blog.groupdocs.cloud/category/viewer/) | [Free Support](https://forum.groupdocs.cloud/c/viewer) | [Free Trial](https://purchase.groupdocs.cloud/trial)
+[Home](https://www.groupdocs.cloud/) | [Product Page](https://products.groupdocs.cloud/viewer/android) | [Documentation](https://docs.groupdocs.cloud/viewer/) | [Live Demo](https://products.groupdocs.app/viewer/total) | [API Reference](https://apireference.groupdocs.cloud/viewer/) | [Blog](https://blog.groupdocs.cloud/category/viewer/) | [Free Support](https://forum.groupdocs.cloud/c/viewer) | [Free Trial](https://dashboard.groupdocs.cloud)
