@@ -68,25 +68,26 @@ repositories {
 ...
 dependencies {
     ...
-    implementation 'com.groupdocs:groupdocs-viewer-cloud:19.5'
+    implementation 'com.groupdocs:groupdocs-viewer-cloud:20.5'
 }
 ```
 
-## Render Selected Pages of a DOCX
+## Render DOCX in the Cloud from an Android App
 
 ```java
-Configuration configuration = new Configuration(MyAppSid, MyAppKey);
+
+// For complete examples and data files, please go to https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-java-samples
+// Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
+string MyClientSecret = "";
+string MyClientId = ""; 
+
+Configuration configuration = new Configuration(MyClientId, MyClientSecret);
 ViewApi apiInstance = new ViewApi(configuration);
 
 FileInfo fileInfo = new FileInfo();
 fileInfo.setFilePath("SampleFiles/sample.docx");
 ViewOptions viewOptions = new ViewOptions();
 viewOptions.setFileInfo(fileInfo);
-viewOptions.setViewFormat(ViewFormatEnum.HTML);
-RenderOptions renderOptions = new RenderOptions();
-renderOptions.addPagesToRenderItem(2);
-renderOptions.addPagesToRenderItem(3);
-viewOptions.setRenderOptions(renderOptions);
 
 ViewResult response = apiInstance.createView(new CreateViewRequest(viewOptions));
 ```
