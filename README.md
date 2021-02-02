@@ -78,8 +78,8 @@ dependencies {
 
 // For complete examples and data files, please go to https://github.com/groupdocs-viewer-cloud/groupdocs-viewer-cloud-java-samples
 // Get Client Id and Client Secret from https://dashboard.groupdocs.cloud
-string MyClientSecret = "";
-string MyClientId = ""; 
+String MyClientId = "";
+String MyClientSecret = "";
 
 Configuration configuration = new Configuration(MyClientId, MyClientSecret);
 ViewApi apiInstance = new ViewApi(configuration);
