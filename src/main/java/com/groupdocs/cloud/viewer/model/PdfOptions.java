@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PdfOptions.java">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -46,6 +46,7 @@ import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,61 +63,8 @@ public class PdfOptions extends RenderOptions {
   @SerializedName("permissionsPassword")
   private String permissionsPassword = null;
 
-  /**
-   * The PDF document permissions such as printing, modification and data extraction
-   */
-  @JsonAdapter(PermissionsEnum.Adapter.class)
-  public enum PermissionsEnum {
-    ALLOWALL("AllowAll"),
-    
-    DENYPRINTING("DenyPrinting"),
-    
-    DENYMODIFICATION("DenyModification"),
-    
-    DENYDATAEXTRACTION("DenyDataExtraction"),
-    
-    DENYALL("DenyAll");
-
-    private String value;
-
-    PermissionsEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static PermissionsEnum fromValue(String text) {
-      for (PermissionsEnum b : PermissionsEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-
-    public static class Adapter extends TypeAdapter<PermissionsEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final PermissionsEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public PermissionsEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return PermissionsEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
-
   @SerializedName("permissions")
-  private PermissionsEnum permissions = null;
+  private List<String> permissions = null;
 
   public PdfOptions jpgQuality(Integer jpgQuality) {
     this.jpgQuality = jpgQuality;
@@ -172,21 +120,29 @@ public class PdfOptions extends RenderOptions {
     this.permissionsPassword = permissionsPassword;
   }
 
-  public PdfOptions permissions(PermissionsEnum permissions) {
+  public PdfOptions permissions(List<String> permissions) {
     this.permissions = permissions;
     return this;
   }
 
+  public PdfOptions addPermissionsItem(String permissionsItem) {
+    if (this.permissions == null) {
+      this.permissions = new ArrayList<String>();
+    }
+    this.permissions.add(permissionsItem);
+    return this;
+  }
+
    /**
-   * The PDF document permissions such as printing, modification and data extraction
+   * The array of PDF document permissions. Allowed values are: AllowAll, DenyPrinting, DenyModification, DenyDataExtraction, DenyAll Default value is AllowAll, if now permissions are set.
    * @return permissions
   **/
-  @ApiModelProperty(required = true, value = "The PDF document permissions such as printing, modification and data extraction")
-  public PermissionsEnum getPermissions() {
+  @ApiModelProperty(value = "The array of PDF document permissions. Allowed values are: AllowAll, DenyPrinting, DenyModification, DenyDataExtraction, DenyAll Default value is AllowAll, if now permissions are set.")
+  public List<String> getPermissions() {
     return permissions;
   }
 
-  public void setPermissions(PermissionsEnum permissions) {
+  public void setPermissions(List<String> permissions) {
     this.permissions = permissions;
   }
 

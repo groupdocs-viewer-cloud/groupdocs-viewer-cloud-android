@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd">
- *   Copyright (c) 2003-2020 Aspose Pty Ltd
+ *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -176,7 +176,7 @@ public class ViewerGetInfoApiTests extends BaseApiTest {
         // Act & Assert
         InfoResult infoResult = infoApi.getInfo(request);
 
-        assertEquals(2, infoResult.getPages().size());
+        assertEquals(3, infoResult.getPages().size());
     }
 
     @Test
