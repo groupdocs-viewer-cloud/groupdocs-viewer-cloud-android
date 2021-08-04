@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="ArchiveOptions.java">
+ * <copyright company="Aspose Pty Ltd" file="MailStorageOptions.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -38,71 +38,71 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Provides options for rendering archive files
+ * Provides options for rendering Mail storage (Lotus Notes, MBox) data files.
  */
-@ApiModel(description = "Provides options for rendering archive files")
-public class ArchiveOptions {
-  @SerializedName("folder")
-  private String folder = null;
+@ApiModel(description = "Provides options for rendering Mail storage (Lotus Notes, MBox) data files.")
+public class MailStorageOptions {
+  @SerializedName("textFilter")
+  private String textFilter = null;
 
-  @SerializedName("fileName")
-  private String fileName = null;
+  @SerializedName("addressFilter")
+  private String addressFilter = null;
 
-  @SerializedName("itemsPerPage")
-  private Integer itemsPerPage = null;
+  @SerializedName("maxItems")
+  private Integer maxItems = null;
 
-  public ArchiveOptions folder(String folder) {
-    this.folder = folder;
+  public MailStorageOptions textFilter(String textFilter) {
+    this.textFilter = textFilter;
     return this;
   }
 
    /**
-   * The folder inside the archive to be rendered
-   * @return folder
+   * The keywords used to filter messages.
+   * @return textFilter
   **/
-  @ApiModelProperty(value = "The folder inside the archive to be rendered")
-  public String getFolder() {
-    return folder;
+  @ApiModelProperty(value = "The keywords used to filter messages.")
+  public String getTextFilter() {
+    return textFilter;
   }
 
-  public void setFolder(String folder) {
-    this.folder = folder;
+  public void setTextFilter(String textFilter) {
+    this.textFilter = textFilter;
   }
 
-  public ArchiveOptions fileName(String fileName) {
-    this.fileName = fileName;
+  public MailStorageOptions addressFilter(String addressFilter) {
+    this.addressFilter = addressFilter;
     return this;
   }
 
    /**
-   * The filename to display in the header. By default the name of the source file is displayed.
-   * @return fileName
+   * The email-address used to filter messages by sender or recipient.
+   * @return addressFilter
   **/
-  @ApiModelProperty(value = "The filename to display in the header. By default the name of the source file is displayed.")
-  public String getFileName() {
-    return fileName;
+  @ApiModelProperty(value = "The email-address used to filter messages by sender or recipient.")
+  public String getAddressFilter() {
+    return addressFilter;
   }
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
+  public void setAddressFilter(String addressFilter) {
+    this.addressFilter = addressFilter;
   }
 
-  public ArchiveOptions itemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
+  public MailStorageOptions maxItems(Integer maxItems) {
+    this.maxItems = maxItems;
     return this;
   }
 
    /**
-   * Number of records per page (for rendering to HTML only)             
-   * @return itemsPerPage
+   * The maximum number of messages or items for render. Default value is 0 - all messages will be rendered
+   * @return maxItems
   **/
-  @ApiModelProperty(required = true, value = "Number of records per page (for rendering to HTML only)             ")
-  public Integer getItemsPerPage() {
-    return itemsPerPage;
+  @ApiModelProperty(required = true, value = "The maximum number of messages or items for render. Default value is 0 - all messages will be rendered")
+  public Integer getMaxItems() {
+    return maxItems;
   }
 
-  public void setItemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
+  public void setMaxItems(Integer maxItems) {
+    this.maxItems = maxItems;
   }
 
 
@@ -114,26 +114,26 @@ public class ArchiveOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArchiveOptions archiveOptions = (ArchiveOptions) o;
-    return Objects.equals(this.folder, archiveOptions.folder) &&
-        Objects.equals(this.fileName, archiveOptions.fileName) &&
-        Objects.equals(this.itemsPerPage, archiveOptions.itemsPerPage);
+    MailStorageOptions mailStorageOptions = (MailStorageOptions) o;
+    return Objects.equals(this.textFilter, mailStorageOptions.textFilter) &&
+        Objects.equals(this.addressFilter, mailStorageOptions.addressFilter) &&
+        Objects.equals(this.maxItems, mailStorageOptions.maxItems);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(folder, fileName, itemsPerPage);
+    return Objects.hash(textFilter, addressFilter, maxItems);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ArchiveOptions {\n");
+    sb.append("class MailStorageOptions {\n");
     
-    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    itemsPerPage: ").append(toIndentedString(itemsPerPage)).append("\n");
+    sb.append("    textFilter: ").append(toIndentedString(textFilter)).append("\n");
+    sb.append("    addressFilter: ").append(toIndentedString(addressFilter)).append("\n");
+    sb.append("    maxItems: ").append(toIndentedString(maxItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }

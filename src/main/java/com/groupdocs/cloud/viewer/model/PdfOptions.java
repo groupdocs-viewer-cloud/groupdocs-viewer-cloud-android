@@ -36,12 +36,15 @@ import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.viewer.model.ArchiveOptions;
 import com.groupdocs.cloud.viewer.model.CadOptions;
 import com.groupdocs.cloud.viewer.model.EmailOptions;
+import com.groupdocs.cloud.viewer.model.MailStorageOptions;
 import com.groupdocs.cloud.viewer.model.OutlookOptions;
 import com.groupdocs.cloud.viewer.model.PageRotation;
 import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.RenderOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
+import com.groupdocs.cloud.viewer.model.TextOptions;
+import com.groupdocs.cloud.viewer.model.VisioRenderingOptions;
 import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -65,6 +68,18 @@ public class PdfOptions extends RenderOptions {
 
   @SerializedName("permissions")
   private List<String> permissions = null;
+
+  @SerializedName("imageMaxWidth")
+  private Integer imageMaxWidth = null;
+
+  @SerializedName("imageMaxHeight")
+  private Integer imageMaxHeight = null;
+
+  @SerializedName("imageWidth")
+  private Integer imageWidth = null;
+
+  @SerializedName("imageHeight")
+  private Integer imageHeight = null;
 
   public PdfOptions jpgQuality(Integer jpgQuality) {
     this.jpgQuality = jpgQuality;
@@ -146,6 +161,78 @@ public class PdfOptions extends RenderOptions {
     this.permissions = permissions;
   }
 
+  public PdfOptions imageMaxWidth(Integer imageMaxWidth) {
+    this.imageMaxWidth = imageMaxWidth;
+    return this;
+  }
+
+   /**
+   * Max width of an output image in pixels. (When converting single image to HTML only)
+   * @return imageMaxWidth
+  **/
+  @ApiModelProperty(required = true, value = "Max width of an output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageMaxWidth() {
+    return imageMaxWidth;
+  }
+
+  public void setImageMaxWidth(Integer imageMaxWidth) {
+    this.imageMaxWidth = imageMaxWidth;
+  }
+
+  public PdfOptions imageMaxHeight(Integer imageMaxHeight) {
+    this.imageMaxHeight = imageMaxHeight;
+    return this;
+  }
+
+   /**
+   * Max height of an output image in pixels. (When converting single image to HTML only)
+   * @return imageMaxHeight
+  **/
+  @ApiModelProperty(required = true, value = "Max height of an output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageMaxHeight() {
+    return imageMaxHeight;
+  }
+
+  public void setImageMaxHeight(Integer imageMaxHeight) {
+    this.imageMaxHeight = imageMaxHeight;
+  }
+
+  public PdfOptions imageWidth(Integer imageWidth) {
+    this.imageWidth = imageWidth;
+    return this;
+  }
+
+   /**
+   * The width of the output image in pixels. (When converting single image to HTML only)
+   * @return imageWidth
+  **/
+  @ApiModelProperty(required = true, value = "The width of the output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageWidth() {
+    return imageWidth;
+  }
+
+  public void setImageWidth(Integer imageWidth) {
+    this.imageWidth = imageWidth;
+  }
+
+  public PdfOptions imageHeight(Integer imageHeight) {
+    this.imageHeight = imageHeight;
+    return this;
+  }
+
+   /**
+   * The height of an output image in pixels. (When converting single image to HTML only)
+   * @return imageHeight
+  **/
+  @ApiModelProperty(required = true, value = "The height of an output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageHeight() {
+    return imageHeight;
+  }
+
+  public void setImageHeight(Integer imageHeight) {
+    this.imageHeight = imageHeight;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -160,12 +247,16 @@ public class PdfOptions extends RenderOptions {
         Objects.equals(this.documentOpenPassword, pdfOptions.documentOpenPassword) &&
         Objects.equals(this.permissionsPassword, pdfOptions.permissionsPassword) &&
         Objects.equals(this.permissions, pdfOptions.permissions) &&
+        Objects.equals(this.imageMaxWidth, pdfOptions.imageMaxWidth) &&
+        Objects.equals(this.imageMaxHeight, pdfOptions.imageMaxHeight) &&
+        Objects.equals(this.imageWidth, pdfOptions.imageWidth) &&
+        Objects.equals(this.imageHeight, pdfOptions.imageHeight) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jpgQuality, documentOpenPassword, permissionsPassword, permissions, super.hashCode());
+    return Objects.hash(jpgQuality, documentOpenPassword, permissionsPassword, permissions, imageMaxWidth, imageMaxHeight, imageWidth, imageHeight, super.hashCode());
   }
 
 
@@ -178,6 +269,10 @@ public class PdfOptions extends RenderOptions {
     sb.append("    documentOpenPassword: ").append(toIndentedString(documentOpenPassword)).append("\n");
     sb.append("    permissionsPassword: ").append(toIndentedString(permissionsPassword)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    imageMaxWidth: ").append(toIndentedString(imageMaxWidth)).append("\n");
+    sb.append("    imageMaxHeight: ").append(toIndentedString(imageMaxHeight)).append("\n");
+    sb.append("    imageWidth: ").append(toIndentedString(imageWidth)).append("\n");
+    sb.append("    imageHeight: ").append(toIndentedString(imageHeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

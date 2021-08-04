@@ -36,12 +36,15 @@ import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.viewer.model.ArchiveOptions;
 import com.groupdocs.cloud.viewer.model.CadOptions;
 import com.groupdocs.cloud.viewer.model.EmailOptions;
+import com.groupdocs.cloud.viewer.model.MailStorageOptions;
 import com.groupdocs.cloud.viewer.model.OutlookOptions;
 import com.groupdocs.cloud.viewer.model.PageRotation;
 import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.RenderOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
+import com.groupdocs.cloud.viewer.model.TextOptions;
+import com.groupdocs.cloud.viewer.model.VisioRenderingOptions;
 import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -71,6 +74,24 @@ public class HtmlOptions extends RenderOptions {
 
   @SerializedName("fontsToExclude")
   private List<String> fontsToExclude = null;
+
+  @SerializedName("forPrinting")
+  private Boolean forPrinting = null;
+
+  @SerializedName("imageHeight")
+  private Integer imageHeight = null;
+
+  @SerializedName("imageWidth")
+  private Integer imageWidth = null;
+
+  @SerializedName("imageMaxHeight")
+  private Integer imageMaxHeight = null;
+
+  @SerializedName("imageMaxWidth")
+  private Integer imageMaxWidth = null;
+
+  @SerializedName("renderToSinglePage")
+  private Boolean renderToSinglePage = null;
 
   public HtmlOptions externalResources(Boolean externalResources) {
     this.externalResources = externalResources;
@@ -188,6 +209,114 @@ public class HtmlOptions extends RenderOptions {
     this.fontsToExclude = fontsToExclude;
   }
 
+  public HtmlOptions forPrinting(Boolean forPrinting) {
+    this.forPrinting = forPrinting;
+    return this;
+  }
+
+   /**
+   * Indicates whether to optimize output HTML for printing.
+   * @return forPrinting
+  **/
+  @ApiModelProperty(required = true, value = "Indicates whether to optimize output HTML for printing.")
+  public Boolean getForPrinting() {
+    return forPrinting;
+  }
+
+  public void setForPrinting(Boolean forPrinting) {
+    this.forPrinting = forPrinting;
+  }
+
+  public HtmlOptions imageHeight(Integer imageHeight) {
+    this.imageHeight = imageHeight;
+    return this;
+  }
+
+   /**
+   * The height of an output image in pixels. (When converting single image to HTML only)
+   * @return imageHeight
+  **/
+  @ApiModelProperty(required = true, value = "The height of an output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageHeight() {
+    return imageHeight;
+  }
+
+  public void setImageHeight(Integer imageHeight) {
+    this.imageHeight = imageHeight;
+  }
+
+  public HtmlOptions imageWidth(Integer imageWidth) {
+    this.imageWidth = imageWidth;
+    return this;
+  }
+
+   /**
+   * The width of the output image in pixels. (When converting single image to HTML only)
+   * @return imageWidth
+  **/
+  @ApiModelProperty(required = true, value = "The width of the output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageWidth() {
+    return imageWidth;
+  }
+
+  public void setImageWidth(Integer imageWidth) {
+    this.imageWidth = imageWidth;
+  }
+
+  public HtmlOptions imageMaxHeight(Integer imageMaxHeight) {
+    this.imageMaxHeight = imageMaxHeight;
+    return this;
+  }
+
+   /**
+   * Max height of an output image in pixels. (When converting single image to HTML only)
+   * @return imageMaxHeight
+  **/
+  @ApiModelProperty(required = true, value = "Max height of an output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageMaxHeight() {
+    return imageMaxHeight;
+  }
+
+  public void setImageMaxHeight(Integer imageMaxHeight) {
+    this.imageMaxHeight = imageMaxHeight;
+  }
+
+  public HtmlOptions imageMaxWidth(Integer imageMaxWidth) {
+    this.imageMaxWidth = imageMaxWidth;
+    return this;
+  }
+
+   /**
+   * Max width of an output image in pixels. (When converting single image to HTML only)
+   * @return imageMaxWidth
+  **/
+  @ApiModelProperty(required = true, value = "Max width of an output image in pixels. (When converting single image to HTML only)")
+  public Integer getImageMaxWidth() {
+    return imageMaxWidth;
+  }
+
+  public void setImageMaxWidth(Integer imageMaxWidth) {
+    this.imageMaxWidth = imageMaxWidth;
+  }
+
+  public HtmlOptions renderToSinglePage(Boolean renderToSinglePage) {
+    this.renderToSinglePage = renderToSinglePage;
+    return this;
+  }
+
+   /**
+   * Enables HTML content will be rendered to single page
+   * @return renderToSinglePage
+  **/
+  @ApiModelProperty(required = true, value = "Enables HTML content will be rendered to single page")
+  public Boolean getRenderToSinglePage() {
+    return renderToSinglePage;
+  }
+
+  public void setRenderToSinglePage(Boolean renderToSinglePage) {
+    this.renderToSinglePage = renderToSinglePage;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -204,12 +333,18 @@ public class HtmlOptions extends RenderOptions {
         Objects.equals(this.minify, htmlOptions.minify) &&
         Objects.equals(this.excludeFonts, htmlOptions.excludeFonts) &&
         Objects.equals(this.fontsToExclude, htmlOptions.fontsToExclude) &&
+        Objects.equals(this.forPrinting, htmlOptions.forPrinting) &&
+        Objects.equals(this.imageHeight, htmlOptions.imageHeight) &&
+        Objects.equals(this.imageWidth, htmlOptions.imageWidth) &&
+        Objects.equals(this.imageMaxHeight, htmlOptions.imageMaxHeight) &&
+        Objects.equals(this.imageMaxWidth, htmlOptions.imageMaxWidth) &&
+        Objects.equals(this.renderToSinglePage, htmlOptions.renderToSinglePage) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalResources, resourcePath, isResponsive, minify, excludeFonts, fontsToExclude, super.hashCode());
+    return Objects.hash(externalResources, resourcePath, isResponsive, minify, excludeFonts, fontsToExclude, forPrinting, imageHeight, imageWidth, imageMaxHeight, imageMaxWidth, renderToSinglePage, super.hashCode());
   }
 
 
@@ -224,6 +359,12 @@ public class HtmlOptions extends RenderOptions {
     sb.append("    minify: ").append(toIndentedString(minify)).append("\n");
     sb.append("    excludeFonts: ").append(toIndentedString(excludeFonts)).append("\n");
     sb.append("    fontsToExclude: ").append(toIndentedString(fontsToExclude)).append("\n");
+    sb.append("    forPrinting: ").append(toIndentedString(forPrinting)).append("\n");
+    sb.append("    imageHeight: ").append(toIndentedString(imageHeight)).append("\n");
+    sb.append("    imageWidth: ").append(toIndentedString(imageWidth)).append("\n");
+    sb.append("    imageMaxHeight: ").append(toIndentedString(imageMaxHeight)).append("\n");
+    sb.append("    imageMaxWidth: ").append(toIndentedString(imageMaxWidth)).append("\n");
+    sb.append("    renderToSinglePage: ").append(toIndentedString(renderToSinglePage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

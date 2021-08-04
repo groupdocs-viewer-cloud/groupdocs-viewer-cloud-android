@@ -48,6 +48,9 @@ public class SpreadsheetOptions {
   @SerializedName("countRowsPerPage")
   private Integer countRowsPerPage = null;
 
+  @SerializedName("countColumnsPerPage")
+  private Integer countColumnsPerPage = null;
+
   @SerializedName("renderGridLines")
   private Boolean renderGridLines = null;
 
@@ -62,6 +65,9 @@ public class SpreadsheetOptions {
 
   @SerializedName("renderHiddenColumns")
   private Boolean renderHiddenColumns = null;
+
+  @SerializedName("renderHeadings")
+  private Boolean renderHeadings = null;
 
   @SerializedName("renderPrintAreaOnly")
   private Boolean renderPrintAreaOnly = null;
@@ -156,6 +162,24 @@ public class SpreadsheetOptions {
     this.countRowsPerPage = countRowsPerPage;
   }
 
+  public SpreadsheetOptions countColumnsPerPage(Integer countColumnsPerPage) {
+    this.countColumnsPerPage = countColumnsPerPage;
+    return this;
+  }
+
+   /**
+   * The columns count to include into each page when splitting worksheet into pages.
+   * @return countColumnsPerPage
+  **/
+  @ApiModelProperty(required = true, value = "The columns count to include into each page when splitting worksheet into pages.")
+  public Integer getCountColumnsPerPage() {
+    return countColumnsPerPage;
+  }
+
+  public void setCountColumnsPerPage(Integer countColumnsPerPage) {
+    this.countColumnsPerPage = countColumnsPerPage;
+  }
+
   public SpreadsheetOptions renderGridLines(Boolean renderGridLines) {
     this.renderGridLines = renderGridLines;
     return this;
@@ -246,6 +270,24 @@ public class SpreadsheetOptions {
     this.renderHiddenColumns = renderHiddenColumns;
   }
 
+  public SpreadsheetOptions renderHeadings(Boolean renderHeadings) {
+    this.renderHeadings = renderHeadings;
+    return this;
+  }
+
+   /**
+   * Enables headings rendering.
+   * @return renderHeadings
+  **/
+  @ApiModelProperty(required = true, value = "Enables headings rendering.")
+  public Boolean getRenderHeadings() {
+    return renderHeadings;
+  }
+
+  public void setRenderHeadings(Boolean renderHeadings) {
+    this.renderHeadings = renderHeadings;
+  }
+
   public SpreadsheetOptions renderPrintAreaOnly(Boolean renderPrintAreaOnly) {
     this.renderPrintAreaOnly = renderPrintAreaOnly;
     return this;
@@ -294,18 +336,20 @@ public class SpreadsheetOptions {
     SpreadsheetOptions spreadsheetOptions = (SpreadsheetOptions) o;
     return Objects.equals(this.paginateSheets, spreadsheetOptions.paginateSheets) &&
         Objects.equals(this.countRowsPerPage, spreadsheetOptions.countRowsPerPage) &&
+        Objects.equals(this.countColumnsPerPage, spreadsheetOptions.countColumnsPerPage) &&
         Objects.equals(this.renderGridLines, spreadsheetOptions.renderGridLines) &&
         Objects.equals(this.renderEmptyRows, spreadsheetOptions.renderEmptyRows) &&
         Objects.equals(this.renderEmptyColumns, spreadsheetOptions.renderEmptyColumns) &&
         Objects.equals(this.renderHiddenRows, spreadsheetOptions.renderHiddenRows) &&
         Objects.equals(this.renderHiddenColumns, spreadsheetOptions.renderHiddenColumns) &&
+        Objects.equals(this.renderHeadings, spreadsheetOptions.renderHeadings) &&
         Objects.equals(this.renderPrintAreaOnly, spreadsheetOptions.renderPrintAreaOnly) &&
         Objects.equals(this.textOverflowMode, spreadsheetOptions.textOverflowMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paginateSheets, countRowsPerPage, renderGridLines, renderEmptyRows, renderEmptyColumns, renderHiddenRows, renderHiddenColumns, renderPrintAreaOnly, textOverflowMode);
+    return Objects.hash(paginateSheets, countRowsPerPage, countColumnsPerPage, renderGridLines, renderEmptyRows, renderEmptyColumns, renderHiddenRows, renderHiddenColumns, renderHeadings, renderPrintAreaOnly, textOverflowMode);
   }
 
 
@@ -316,11 +360,13 @@ public class SpreadsheetOptions {
     
     sb.append("    paginateSheets: ").append(toIndentedString(paginateSheets)).append("\n");
     sb.append("    countRowsPerPage: ").append(toIndentedString(countRowsPerPage)).append("\n");
+    sb.append("    countColumnsPerPage: ").append(toIndentedString(countColumnsPerPage)).append("\n");
     sb.append("    renderGridLines: ").append(toIndentedString(renderGridLines)).append("\n");
     sb.append("    renderEmptyRows: ").append(toIndentedString(renderEmptyRows)).append("\n");
     sb.append("    renderEmptyColumns: ").append(toIndentedString(renderEmptyColumns)).append("\n");
     sb.append("    renderHiddenRows: ").append(toIndentedString(renderHiddenRows)).append("\n");
     sb.append("    renderHiddenColumns: ").append(toIndentedString(renderHiddenColumns)).append("\n");
+    sb.append("    renderHeadings: ").append(toIndentedString(renderHeadings)).append("\n");
     sb.append("    renderPrintAreaOnly: ").append(toIndentedString(renderPrintAreaOnly)).append("\n");
     sb.append("    textOverflowMode: ").append(toIndentedString(textOverflowMode)).append("\n");
     sb.append("}");

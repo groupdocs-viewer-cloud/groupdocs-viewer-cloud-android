@@ -106,6 +106,9 @@ public class PdfDocumentOptions {
   @SerializedName("imageQuality")
   private ImageQualityEnum imageQuality = null;
 
+  @SerializedName("renderTextAsImage")
+  private Boolean renderTextAsImage = null;
+
   public PdfDocumentOptions disableCharsGrouping(Boolean disableCharsGrouping) {
     this.disableCharsGrouping = disableCharsGrouping;
     return this;
@@ -196,6 +199,24 @@ public class PdfDocumentOptions {
     this.imageQuality = imageQuality;
   }
 
+  public PdfDocumentOptions renderTextAsImage(Boolean renderTextAsImage) {
+    this.renderTextAsImage = renderTextAsImage;
+    return this;
+  }
+
+   /**
+   * When this option is set to true, the text is rendered as an image in the output HTML. Enable this option to make text unselectable or to fix characters rendering and make HTML look like PDF. The default value is false. This option is supported when rendering into HTML.
+   * @return renderTextAsImage
+  **/
+  @ApiModelProperty(required = true, value = "When this option is set to true, the text is rendered as an image in the output HTML. Enable this option to make text unselectable or to fix characters rendering and make HTML look like PDF. The default value is false. This option is supported when rendering into HTML.")
+  public Boolean getRenderTextAsImage() {
+    return renderTextAsImage;
+  }
+
+  public void setRenderTextAsImage(Boolean renderTextAsImage) {
+    this.renderTextAsImage = renderTextAsImage;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -210,12 +231,13 @@ public class PdfDocumentOptions {
         Objects.equals(this.enableLayeredRendering, pdfDocumentOptions.enableLayeredRendering) &&
         Objects.equals(this.enableFontHinting, pdfDocumentOptions.enableFontHinting) &&
         Objects.equals(this.renderOriginalPageSize, pdfDocumentOptions.renderOriginalPageSize) &&
-        Objects.equals(this.imageQuality, pdfDocumentOptions.imageQuality);
+        Objects.equals(this.imageQuality, pdfDocumentOptions.imageQuality) &&
+        Objects.equals(this.renderTextAsImage, pdfDocumentOptions.renderTextAsImage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disableCharsGrouping, enableLayeredRendering, enableFontHinting, renderOriginalPageSize, imageQuality);
+    return Objects.hash(disableCharsGrouping, enableLayeredRendering, enableFontHinting, renderOriginalPageSize, imageQuality, renderTextAsImage);
   }
 
 
@@ -229,6 +251,7 @@ public class PdfDocumentOptions {
     sb.append("    enableFontHinting: ").append(toIndentedString(enableFontHinting)).append("\n");
     sb.append("    renderOriginalPageSize: ").append(toIndentedString(renderOriginalPageSize)).append("\n");
     sb.append("    imageQuality: ").append(toIndentedString(imageQuality)).append("\n");
+    sb.append("    renderTextAsImage: ").append(toIndentedString(renderTextAsImage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

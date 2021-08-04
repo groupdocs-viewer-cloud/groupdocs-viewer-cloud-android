@@ -110,6 +110,12 @@ public class EmailOptions {
   @SerializedName("fieldLabels")
   private List<FieldLabel> fieldLabels = null;
 
+  @SerializedName("dateTimeFormat")
+  private String dateTimeFormat = null;
+
+  @SerializedName("timeZoneOffset")
+  private String timeZoneOffset = null;
+
   public EmailOptions pageSize(PageSizeEnum pageSize) {
     this.pageSize = pageSize;
     return this;
@@ -154,6 +160,42 @@ public class EmailOptions {
     this.fieldLabels = fieldLabels;
   }
 
+  public EmailOptions dateTimeFormat(String dateTimeFormat) {
+    this.dateTimeFormat = dateTimeFormat;
+    return this;
+  }
+
+   /**
+   * Time Format (can be include TimeZone) for example: &#39;MM d yyyy HH:mm tt&#39;, if not set - current system format is used
+   * @return dateTimeFormat
+  **/
+  @ApiModelProperty(value = "Time Format (can be include TimeZone) for example: 'MM d yyyy HH:mm tt', if not set - current system format is used")
+  public String getDateTimeFormat() {
+    return dateTimeFormat;
+  }
+
+  public void setDateTimeFormat(String dateTimeFormat) {
+    this.dateTimeFormat = dateTimeFormat;
+  }
+
+  public EmailOptions timeZoneOffset(String timeZoneOffset) {
+    this.timeZoneOffset = timeZoneOffset;
+    return this;
+  }
+
+   /**
+   * Message time zone offset. Format should be compatible with .net TimeSpan
+   * @return timeZoneOffset
+  **/
+  @ApiModelProperty(value = "Message time zone offset. Format should be compatible with .net TimeSpan")
+  public String getTimeZoneOffset() {
+    return timeZoneOffset;
+  }
+
+  public void setTimeZoneOffset(String timeZoneOffset) {
+    this.timeZoneOffset = timeZoneOffset;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -165,12 +207,14 @@ public class EmailOptions {
     }
     EmailOptions emailOptions = (EmailOptions) o;
     return Objects.equals(this.pageSize, emailOptions.pageSize) &&
-        Objects.equals(this.fieldLabels, emailOptions.fieldLabels);
+        Objects.equals(this.fieldLabels, emailOptions.fieldLabels) &&
+        Objects.equals(this.dateTimeFormat, emailOptions.dateTimeFormat) &&
+        Objects.equals(this.timeZoneOffset, emailOptions.timeZoneOffset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSize, fieldLabels);
+    return Objects.hash(pageSize, fieldLabels, dateTimeFormat, timeZoneOffset);
   }
 
 
@@ -181,6 +225,8 @@ public class EmailOptions {
     
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    fieldLabels: ").append(toIndentedString(fieldLabels)).append("\n");
+    sb.append("    dateTimeFormat: ").append(toIndentedString(dateTimeFormat)).append("\n");
+    sb.append("    timeZoneOffset: ").append(toIndentedString(timeZoneOffset)).append("\n");
     sb.append("}");
     return sb.toString();
   }

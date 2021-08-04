@@ -36,12 +36,15 @@ import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.viewer.model.ArchiveOptions;
 import com.groupdocs.cloud.viewer.model.CadOptions;
 import com.groupdocs.cloud.viewer.model.EmailOptions;
+import com.groupdocs.cloud.viewer.model.MailStorageOptions;
 import com.groupdocs.cloud.viewer.model.OutlookOptions;
 import com.groupdocs.cloud.viewer.model.PageRotation;
 import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.RenderOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
+import com.groupdocs.cloud.viewer.model.TextOptions;
+import com.groupdocs.cloud.viewer.model.VisioRenderingOptions;
 import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -64,6 +67,12 @@ public class ImageOptions extends RenderOptions {
 
   @SerializedName("jpegQuality")
   private Integer jpegQuality = null;
+
+  @SerializedName("maxWidth")
+  private Integer maxWidth = null;
+
+  @SerializedName("maxHeight")
+  private Integer maxHeight = null;
 
   public ImageOptions width(Integer width) {
     this.width = width;
@@ -137,6 +146,42 @@ public class ImageOptions extends RenderOptions {
     this.jpegQuality = jpegQuality;
   }
 
+  public ImageOptions maxWidth(Integer maxWidth) {
+    this.maxWidth = maxWidth;
+    return this;
+  }
+
+   /**
+   * Max width of an output image in pixels
+   * @return maxWidth
+  **/
+  @ApiModelProperty(required = true, value = "Max width of an output image in pixels")
+  public Integer getMaxWidth() {
+    return maxWidth;
+  }
+
+  public void setMaxWidth(Integer maxWidth) {
+    this.maxWidth = maxWidth;
+  }
+
+  public ImageOptions maxHeight(Integer maxHeight) {
+    this.maxHeight = maxHeight;
+    return this;
+  }
+
+   /**
+   * Max height of an output image in pixels
+   * @return maxHeight
+  **/
+  @ApiModelProperty(required = true, value = "Max height of an output image in pixels")
+  public Integer getMaxHeight() {
+    return maxHeight;
+  }
+
+  public void setMaxHeight(Integer maxHeight) {
+    this.maxHeight = maxHeight;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -151,12 +196,14 @@ public class ImageOptions extends RenderOptions {
         Objects.equals(this.height, imageOptions.height) &&
         Objects.equals(this.extractText, imageOptions.extractText) &&
         Objects.equals(this.jpegQuality, imageOptions.jpegQuality) &&
+        Objects.equals(this.maxWidth, imageOptions.maxWidth) &&
+        Objects.equals(this.maxHeight, imageOptions.maxHeight) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(width, height, extractText, jpegQuality, super.hashCode());
+    return Objects.hash(width, height, extractText, jpegQuality, maxWidth, maxHeight, super.hashCode());
   }
 
 
@@ -169,6 +216,8 @@ public class ImageOptions extends RenderOptions {
     sb.append("    height: ").append(toIndentedString(height)).append("\n");
     sb.append("    extractText: ").append(toIndentedString(extractText)).append("\n");
     sb.append("    jpegQuality: ").append(toIndentedString(jpegQuality)).append("\n");
+    sb.append("    maxWidth: ").append(toIndentedString(maxWidth)).append("\n");
+    sb.append("    maxHeight: ").append(toIndentedString(maxHeight)).append("\n");
     sb.append("}");
     return sb.toString();
   }

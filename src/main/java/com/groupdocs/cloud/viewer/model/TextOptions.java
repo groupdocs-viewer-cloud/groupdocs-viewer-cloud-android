@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="ArchiveOptions.java">
+ * <copyright company="Aspose Pty Ltd" file="TextOptions.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -38,71 +38,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Provides options for rendering archive files
+ * Provides options for rendering text documents
  */
-@ApiModel(description = "Provides options for rendering archive files")
-public class ArchiveOptions {
-  @SerializedName("folder")
-  private String folder = null;
+@ApiModel(description = "Provides options for rendering text documents")
+public class TextOptions {
+  @SerializedName("maxCharsPerRow")
+  private Integer maxCharsPerRow = null;
 
-  @SerializedName("fileName")
-  private String fileName = null;
+  @SerializedName("maxRowsPerPage")
+  private Integer maxRowsPerPage = null;
 
-  @SerializedName("itemsPerPage")
-  private Integer itemsPerPage = null;
-
-  public ArchiveOptions folder(String folder) {
-    this.folder = folder;
+  public TextOptions maxCharsPerRow(Integer maxCharsPerRow) {
+    this.maxCharsPerRow = maxCharsPerRow;
     return this;
   }
 
    /**
-   * The folder inside the archive to be rendered
-   * @return folder
+   * Max chars per row on page. Default value is 85.
+   * @return maxCharsPerRow
   **/
-  @ApiModelProperty(value = "The folder inside the archive to be rendered")
-  public String getFolder() {
-    return folder;
+  @ApiModelProperty(required = true, value = "Max chars per row on page. Default value is 85.")
+  public Integer getMaxCharsPerRow() {
+    return maxCharsPerRow;
   }
 
-  public void setFolder(String folder) {
-    this.folder = folder;
+  public void setMaxCharsPerRow(Integer maxCharsPerRow) {
+    this.maxCharsPerRow = maxCharsPerRow;
   }
 
-  public ArchiveOptions fileName(String fileName) {
-    this.fileName = fileName;
+  public TextOptions maxRowsPerPage(Integer maxRowsPerPage) {
+    this.maxRowsPerPage = maxRowsPerPage;
     return this;
   }
 
    /**
-   * The filename to display in the header. By default the name of the source file is displayed.
-   * @return fileName
+   * Max rows per page. Default value is 55.
+   * @return maxRowsPerPage
   **/
-  @ApiModelProperty(value = "The filename to display in the header. By default the name of the source file is displayed.")
-  public String getFileName() {
-    return fileName;
+  @ApiModelProperty(required = true, value = "Max rows per page. Default value is 55.")
+  public Integer getMaxRowsPerPage() {
+    return maxRowsPerPage;
   }
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public ArchiveOptions itemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
-    return this;
-  }
-
-   /**
-   * Number of records per page (for rendering to HTML only)             
-   * @return itemsPerPage
-  **/
-  @ApiModelProperty(required = true, value = "Number of records per page (for rendering to HTML only)             ")
-  public Integer getItemsPerPage() {
-    return itemsPerPage;
-  }
-
-  public void setItemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
+  public void setMaxRowsPerPage(Integer maxRowsPerPage) {
+    this.maxRowsPerPage = maxRowsPerPage;
   }
 
 
@@ -114,26 +93,24 @@ public class ArchiveOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArchiveOptions archiveOptions = (ArchiveOptions) o;
-    return Objects.equals(this.folder, archiveOptions.folder) &&
-        Objects.equals(this.fileName, archiveOptions.fileName) &&
-        Objects.equals(this.itemsPerPage, archiveOptions.itemsPerPage);
+    TextOptions textOptions = (TextOptions) o;
+    return Objects.equals(this.maxCharsPerRow, textOptions.maxCharsPerRow) &&
+        Objects.equals(this.maxRowsPerPage, textOptions.maxRowsPerPage);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(folder, fileName, itemsPerPage);
+    return Objects.hash(maxCharsPerRow, maxRowsPerPage);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ArchiveOptions {\n");
+    sb.append("class TextOptions {\n");
     
-    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    itemsPerPage: ").append(toIndentedString(itemsPerPage)).append("\n");
+    sb.append("    maxCharsPerRow: ").append(toIndentedString(maxCharsPerRow)).append("\n");
+    sb.append("    maxRowsPerPage: ").append(toIndentedString(maxRowsPerPage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

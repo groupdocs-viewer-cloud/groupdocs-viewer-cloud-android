@@ -36,11 +36,14 @@ import com.google.gson.stream.JsonWriter;
 import com.groupdocs.cloud.viewer.model.ArchiveOptions;
 import com.groupdocs.cloud.viewer.model.CadOptions;
 import com.groupdocs.cloud.viewer.model.EmailOptions;
+import com.groupdocs.cloud.viewer.model.MailStorageOptions;
 import com.groupdocs.cloud.viewer.model.OutlookOptions;
 import com.groupdocs.cloud.viewer.model.PageRotation;
 import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
+import com.groupdocs.cloud.viewer.model.TextOptions;
+import com.groupdocs.cloud.viewer.model.VisioRenderingOptions;
 import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -103,6 +106,15 @@ public class RenderOptions {
 
   @SerializedName("archiveOptions")
   private ArchiveOptions archiveOptions = null;
+
+  @SerializedName("textOptions")
+  private TextOptions textOptions = null;
+
+  @SerializedName("mailStorageOptions")
+  private MailStorageOptions mailStorageOptions = null;
+
+  @SerializedName("visioRenderingOptions")
+  private VisioRenderingOptions visioRenderingOptions = null;
 
   public RenderOptions startPageNumber(Integer startPageNumber) {
     this.startPageNumber = startPageNumber;
@@ -426,6 +438,60 @@ public class RenderOptions {
     this.archiveOptions = archiveOptions;
   }
 
+  public RenderOptions textOptions(TextOptions textOptions) {
+    this.textOptions = textOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for Text source file formats
+   * @return textOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for Text source file formats")
+  public TextOptions getTextOptions() {
+    return textOptions;
+  }
+
+  public void setTextOptions(TextOptions textOptions) {
+    this.textOptions = textOptions;
+  }
+
+  public RenderOptions mailStorageOptions(MailStorageOptions mailStorageOptions) {
+    this.mailStorageOptions = mailStorageOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for Mail storage (Lotus Notes, MBox) data files.
+   * @return mailStorageOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for Mail storage (Lotus Notes, MBox) data files.")
+  public MailStorageOptions getMailStorageOptions() {
+    return mailStorageOptions;
+  }
+
+  public void setMailStorageOptions(MailStorageOptions mailStorageOptions) {
+    this.mailStorageOptions = mailStorageOptions;
+  }
+
+  public RenderOptions visioRenderingOptions(VisioRenderingOptions visioRenderingOptions) {
+    this.visioRenderingOptions = visioRenderingOptions;
+    return this;
+  }
+
+   /**
+   * Rendering options for Visio source file formats
+   * @return visioRenderingOptions
+  **/
+  @ApiModelProperty(value = "Rendering options for Visio source file formats")
+  public VisioRenderingOptions getVisioRenderingOptions() {
+    return visioRenderingOptions;
+  }
+
+  public void setVisioRenderingOptions(VisioRenderingOptions visioRenderingOptions) {
+    this.visioRenderingOptions = visioRenderingOptions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -452,12 +518,15 @@ public class RenderOptions {
         Objects.equals(this.pdfDocumentOptions, renderOptions.pdfDocumentOptions) &&
         Objects.equals(this.wordProcessingOptions, renderOptions.wordProcessingOptions) &&
         Objects.equals(this.outlookOptions, renderOptions.outlookOptions) &&
-        Objects.equals(this.archiveOptions, renderOptions.archiveOptions);
+        Objects.equals(this.archiveOptions, renderOptions.archiveOptions) &&
+        Objects.equals(this.textOptions, renderOptions.textOptions) &&
+        Objects.equals(this.mailStorageOptions, renderOptions.mailStorageOptions) &&
+        Objects.equals(this.visioRenderingOptions, renderOptions.visioRenderingOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startPageNumber, countPagesToRender, pagesToRender, pageRotations, defaultFontName, defaultEncoding, renderComments, renderNotes, renderHiddenPages, spreadsheetOptions, cadOptions, emailOptions, projectManagementOptions, pdfDocumentOptions, wordProcessingOptions, outlookOptions, archiveOptions);
+    return Objects.hash(startPageNumber, countPagesToRender, pagesToRender, pageRotations, defaultFontName, defaultEncoding, renderComments, renderNotes, renderHiddenPages, spreadsheetOptions, cadOptions, emailOptions, projectManagementOptions, pdfDocumentOptions, wordProcessingOptions, outlookOptions, archiveOptions, textOptions, mailStorageOptions, visioRenderingOptions);
   }
 
 
@@ -483,6 +552,9 @@ public class RenderOptions {
     sb.append("    wordProcessingOptions: ").append(toIndentedString(wordProcessingOptions)).append("\n");
     sb.append("    outlookOptions: ").append(toIndentedString(outlookOptions)).append("\n");
     sb.append("    archiveOptions: ").append(toIndentedString(archiveOptions)).append("\n");
+    sb.append("    textOptions: ").append(toIndentedString(textOptions)).append("\n");
+    sb.append("    mailStorageOptions: ").append(toIndentedString(mailStorageOptions)).append("\n");
+    sb.append("    visioRenderingOptions: ").append(toIndentedString(visioRenderingOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

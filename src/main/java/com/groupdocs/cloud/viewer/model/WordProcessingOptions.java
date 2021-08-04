@@ -45,6 +45,18 @@ public class WordProcessingOptions {
   @SerializedName("renderTrackedChanges")
   private Boolean renderTrackedChanges = null;
 
+  @SerializedName("leftMargin")
+  private Double leftMargin = null;
+
+  @SerializedName("rightMargin")
+  private Double rightMargin = null;
+
+  @SerializedName("topMargin")
+  private Double topMargin = null;
+
+  @SerializedName("bottomMargin")
+  private Double bottomMargin = null;
+
   public WordProcessingOptions renderTrackedChanges(Boolean renderTrackedChanges) {
     this.renderTrackedChanges = renderTrackedChanges;
     return this;
@@ -63,6 +75,78 @@ public class WordProcessingOptions {
     this.renderTrackedChanges = renderTrackedChanges;
   }
 
+  public WordProcessingOptions leftMargin(Double leftMargin) {
+    this.leftMargin = leftMargin;
+    return this;
+  }
+
+   /**
+   * Left page margin (for HTML rendering only)
+   * @return leftMargin
+  **/
+  @ApiModelProperty(required = true, value = "Left page margin (for HTML rendering only)")
+  public Double getLeftMargin() {
+    return leftMargin;
+  }
+
+  public void setLeftMargin(Double leftMargin) {
+    this.leftMargin = leftMargin;
+  }
+
+  public WordProcessingOptions rightMargin(Double rightMargin) {
+    this.rightMargin = rightMargin;
+    return this;
+  }
+
+   /**
+   * Right page margin (for HTML rendering only)
+   * @return rightMargin
+  **/
+  @ApiModelProperty(required = true, value = "Right page margin (for HTML rendering only)")
+  public Double getRightMargin() {
+    return rightMargin;
+  }
+
+  public void setRightMargin(Double rightMargin) {
+    this.rightMargin = rightMargin;
+  }
+
+  public WordProcessingOptions topMargin(Double topMargin) {
+    this.topMargin = topMargin;
+    return this;
+  }
+
+   /**
+   * Top page margin (for HTML rendering only)
+   * @return topMargin
+  **/
+  @ApiModelProperty(required = true, value = "Top page margin (for HTML rendering only)")
+  public Double getTopMargin() {
+    return topMargin;
+  }
+
+  public void setTopMargin(Double topMargin) {
+    this.topMargin = topMargin;
+  }
+
+  public WordProcessingOptions bottomMargin(Double bottomMargin) {
+    this.bottomMargin = bottomMargin;
+    return this;
+  }
+
+   /**
+   * Bottom page margin (for HTML rendering only)
+   * @return bottomMargin
+  **/
+  @ApiModelProperty(required = true, value = "Bottom page margin (for HTML rendering only)")
+  public Double getBottomMargin() {
+    return bottomMargin;
+  }
+
+  public void setBottomMargin(Double bottomMargin) {
+    this.bottomMargin = bottomMargin;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,12 +157,16 @@ public class WordProcessingOptions {
       return false;
     }
     WordProcessingOptions wordProcessingOptions = (WordProcessingOptions) o;
-    return Objects.equals(this.renderTrackedChanges, wordProcessingOptions.renderTrackedChanges);
+    return Objects.equals(this.renderTrackedChanges, wordProcessingOptions.renderTrackedChanges) &&
+        Objects.equals(this.leftMargin, wordProcessingOptions.leftMargin) &&
+        Objects.equals(this.rightMargin, wordProcessingOptions.rightMargin) &&
+        Objects.equals(this.topMargin, wordProcessingOptions.topMargin) &&
+        Objects.equals(this.bottomMargin, wordProcessingOptions.bottomMargin);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(renderTrackedChanges);
+    return Objects.hash(renderTrackedChanges, leftMargin, rightMargin, topMargin, bottomMargin);
   }
 
 
@@ -88,6 +176,10 @@ public class WordProcessingOptions {
     sb.append("class WordProcessingOptions {\n");
     
     sb.append("    renderTrackedChanges: ").append(toIndentedString(renderTrackedChanges)).append("\n");
+    sb.append("    leftMargin: ").append(toIndentedString(leftMargin)).append("\n");
+    sb.append("    rightMargin: ").append(toIndentedString(rightMargin)).append("\n");
+    sb.append("    topMargin: ").append(toIndentedString(topMargin)).append("\n");
+    sb.append("    bottomMargin: ").append(toIndentedString(bottomMargin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="ArchiveOptions.java">
+ * <copyright company="Aspose Pty Ltd" file="VisioRenderingOptions.java">
  *   Copyright (c) 2003-2021 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -38,71 +38,50 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * Provides options for rendering archive files
+ * The Visio files processing documents view options.
  */
-@ApiModel(description = "Provides options for rendering archive files")
-public class ArchiveOptions {
-  @SerializedName("folder")
-  private String folder = null;
+@ApiModel(description = "The Visio files processing documents view options.")
+public class VisioRenderingOptions {
+  @SerializedName("renderFiguresOnly")
+  private Boolean renderFiguresOnly = null;
 
-  @SerializedName("fileName")
-  private String fileName = null;
+  @SerializedName("figureWidth")
+  private Integer figureWidth = null;
 
-  @SerializedName("itemsPerPage")
-  private Integer itemsPerPage = null;
-
-  public ArchiveOptions folder(String folder) {
-    this.folder = folder;
+  public VisioRenderingOptions renderFiguresOnly(Boolean renderFiguresOnly) {
+    this.renderFiguresOnly = renderFiguresOnly;
     return this;
   }
 
    /**
-   * The folder inside the archive to be rendered
-   * @return folder
+   * Render only Visio figures, not a diagram.
+   * @return renderFiguresOnly
   **/
-  @ApiModelProperty(value = "The folder inside the archive to be rendered")
-  public String getFolder() {
-    return folder;
+  @ApiModelProperty(required = true, value = "Render only Visio figures, not a diagram.")
+  public Boolean getRenderFiguresOnly() {
+    return renderFiguresOnly;
   }
 
-  public void setFolder(String folder) {
-    this.folder = folder;
+  public void setRenderFiguresOnly(Boolean renderFiguresOnly) {
+    this.renderFiguresOnly = renderFiguresOnly;
   }
 
-  public ArchiveOptions fileName(String fileName) {
-    this.fileName = fileName;
+  public VisioRenderingOptions figureWidth(Integer figureWidth) {
+    this.figureWidth = figureWidth;
     return this;
   }
 
    /**
-   * The filename to display in the header. By default the name of the source file is displayed.
-   * @return fileName
+   * Figure width, height will be calculated automatically. Default value is 100.
+   * @return figureWidth
   **/
-  @ApiModelProperty(value = "The filename to display in the header. By default the name of the source file is displayed.")
-  public String getFileName() {
-    return fileName;
+  @ApiModelProperty(required = true, value = "Figure width, height will be calculated automatically. Default value is 100.")
+  public Integer getFigureWidth() {
+    return figureWidth;
   }
 
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public ArchiveOptions itemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
-    return this;
-  }
-
-   /**
-   * Number of records per page (for rendering to HTML only)             
-   * @return itemsPerPage
-  **/
-  @ApiModelProperty(required = true, value = "Number of records per page (for rendering to HTML only)             ")
-  public Integer getItemsPerPage() {
-    return itemsPerPage;
-  }
-
-  public void setItemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
+  public void setFigureWidth(Integer figureWidth) {
+    this.figureWidth = figureWidth;
   }
 
 
@@ -114,26 +93,24 @@ public class ArchiveOptions {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArchiveOptions archiveOptions = (ArchiveOptions) o;
-    return Objects.equals(this.folder, archiveOptions.folder) &&
-        Objects.equals(this.fileName, archiveOptions.fileName) &&
-        Objects.equals(this.itemsPerPage, archiveOptions.itemsPerPage);
+    VisioRenderingOptions visioRenderingOptions = (VisioRenderingOptions) o;
+    return Objects.equals(this.renderFiguresOnly, visioRenderingOptions.renderFiguresOnly) &&
+        Objects.equals(this.figureWidth, visioRenderingOptions.figureWidth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(folder, fileName, itemsPerPage);
+    return Objects.hash(renderFiguresOnly, figureWidth);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ArchiveOptions {\n");
+    sb.append("class VisioRenderingOptions {\n");
     
-    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
-    sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    itemsPerPage: ").append(toIndentedString(itemsPerPage)).append("\n");
+    sb.append("    renderFiguresOnly: ").append(toIndentedString(renderFiguresOnly)).append("\n");
+    sb.append("    figureWidth: ").append(toIndentedString(figureWidth)).append("\n");
     sb.append("}");
     return sb.toString();
   }
