@@ -74,6 +74,24 @@ public class ViewerGetInfoApiTests extends BaseApiTest {
     }
 
     @Test
+    public void TestGetInfoPasswordProtected()
+    {
+        // Arrange
+        ViewOptions viewOptions = new ViewOptions();
+        viewOptions.setFileInfo(TestFiles.PasswordProtectedDocx.ToFileInfo());
+        viewOptions.getFileInfo().setPassword(null);
+        GetInfoRequest request = new GetInfoRequest(viewOptions);
+
+        // Act & Assert  
+        try {
+            infoApi.getInfo(request);
+            fail("Expected ApiException was not thrown.");
+        } catch (ApiException ex) {
+            assertEquals("Please specify password to load the document.", ex.getMessage());
+        }  
+    }    
+
+    @Test
     public void TestGetInfoWithMinimalViewOptions() throws ApiException
     {
         // Arrange
