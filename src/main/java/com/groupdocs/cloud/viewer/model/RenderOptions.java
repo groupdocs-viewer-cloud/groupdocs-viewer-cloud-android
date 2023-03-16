@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="RenderOptions.java">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,6 +44,7 @@ import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
 import com.groupdocs.cloud.viewer.model.TextOptions;
 import com.groupdocs.cloud.viewer.model.VisioRenderingOptions;
+import com.groupdocs.cloud.viewer.model.WebDocumentOptions;
 import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -73,6 +74,9 @@ public class RenderOptions {
 
   @SerializedName("defaultEncoding")
   private String defaultEncoding = null;
+
+  @SerializedName("detectEncoding")
+  private Boolean detectEncoding = null;
 
   @SerializedName("renderComments")
   private Boolean renderComments = null;
@@ -115,6 +119,9 @@ public class RenderOptions {
 
   @SerializedName("visioRenderingOptions")
   private VisioRenderingOptions visioRenderingOptions = null;
+
+  @SerializedName("webDocumentOptions")
+  private WebDocumentOptions webDocumentOptions = null;
 
   public RenderOptions startPageNumber(Integer startPageNumber) {
     this.startPageNumber = startPageNumber;
@@ -238,6 +245,24 @@ public class RenderOptions {
 
   public void setDefaultEncoding(String defaultEncoding) {
     this.defaultEncoding = defaultEncoding;
+  }
+
+  public RenderOptions detectEncoding(Boolean detectEncoding) {
+    this.detectEncoding = detectEncoding;
+    return this;
+  }
+
+   /**
+   * This option enables TXT, TSV, and CSV files encoding detection. In case the encoding can&#39;t be detected the DefaultEncoding is used.
+   * @return detectEncoding
+  **/
+  @ApiModelProperty(value = "This option enables TXT, TSV, and CSV files encoding detection. In case the encoding can't be detected the DefaultEncoding is used.")
+  public Boolean getDetectEncoding() {
+    return detectEncoding;
+  }
+
+  public void setDetectEncoding(Boolean detectEncoding) {
+    this.detectEncoding = detectEncoding;
   }
 
   public RenderOptions renderComments(Boolean renderComments) {
@@ -492,6 +517,24 @@ public class RenderOptions {
     this.visioRenderingOptions = visioRenderingOptions;
   }
 
+  public RenderOptions webDocumentOptions(WebDocumentOptions webDocumentOptions) {
+    this.webDocumentOptions = webDocumentOptions;
+    return this;
+  }
+
+   /**
+   * This rendering options enables you to customize the appearance of the output HTML/PDF/PNG/JPEG when rendering Web documents.
+   * @return webDocumentOptions
+  **/
+  @ApiModelProperty(value = "This rendering options enables you to customize the appearance of the output HTML/PDF/PNG/JPEG when rendering Web documents.")
+  public WebDocumentOptions getWebDocumentOptions() {
+    return webDocumentOptions;
+  }
+
+  public void setWebDocumentOptions(WebDocumentOptions webDocumentOptions) {
+    this.webDocumentOptions = webDocumentOptions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -508,6 +551,7 @@ public class RenderOptions {
         Objects.equals(this.pageRotations, renderOptions.pageRotations) &&
         Objects.equals(this.defaultFontName, renderOptions.defaultFontName) &&
         Objects.equals(this.defaultEncoding, renderOptions.defaultEncoding) &&
+        Objects.equals(this.detectEncoding, renderOptions.detectEncoding) &&
         Objects.equals(this.renderComments, renderOptions.renderComments) &&
         Objects.equals(this.renderNotes, renderOptions.renderNotes) &&
         Objects.equals(this.renderHiddenPages, renderOptions.renderHiddenPages) &&
@@ -521,12 +565,13 @@ public class RenderOptions {
         Objects.equals(this.archiveOptions, renderOptions.archiveOptions) &&
         Objects.equals(this.textOptions, renderOptions.textOptions) &&
         Objects.equals(this.mailStorageOptions, renderOptions.mailStorageOptions) &&
-        Objects.equals(this.visioRenderingOptions, renderOptions.visioRenderingOptions);
+        Objects.equals(this.visioRenderingOptions, renderOptions.visioRenderingOptions) &&
+        Objects.equals(this.webDocumentOptions, renderOptions.webDocumentOptions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startPageNumber, countPagesToRender, pagesToRender, pageRotations, defaultFontName, defaultEncoding, renderComments, renderNotes, renderHiddenPages, spreadsheetOptions, cadOptions, emailOptions, projectManagementOptions, pdfDocumentOptions, wordProcessingOptions, outlookOptions, archiveOptions, textOptions, mailStorageOptions, visioRenderingOptions);
+    return Objects.hash(startPageNumber, countPagesToRender, pagesToRender, pageRotations, defaultFontName, defaultEncoding, detectEncoding, renderComments, renderNotes, renderHiddenPages, spreadsheetOptions, cadOptions, emailOptions, projectManagementOptions, pdfDocumentOptions, wordProcessingOptions, outlookOptions, archiveOptions, textOptions, mailStorageOptions, visioRenderingOptions, webDocumentOptions);
   }
 
 
@@ -541,6 +586,7 @@ public class RenderOptions {
     sb.append("    pageRotations: ").append(toIndentedString(pageRotations)).append("\n");
     sb.append("    defaultFontName: ").append(toIndentedString(defaultFontName)).append("\n");
     sb.append("    defaultEncoding: ").append(toIndentedString(defaultEncoding)).append("\n");
+    sb.append("    detectEncoding: ").append(toIndentedString(detectEncoding)).append("\n");
     sb.append("    renderComments: ").append(toIndentedString(renderComments)).append("\n");
     sb.append("    renderNotes: ").append(toIndentedString(renderNotes)).append("\n");
     sb.append("    renderHiddenPages: ").append(toIndentedString(renderHiddenPages)).append("\n");
@@ -555,6 +601,7 @@ public class RenderOptions {
     sb.append("    textOptions: ").append(toIndentedString(textOptions)).append("\n");
     sb.append("    mailStorageOptions: ").append(toIndentedString(mailStorageOptions)).append("\n");
     sb.append("    visioRenderingOptions: ").append(toIndentedString(visioRenderingOptions)).append("\n");
+    sb.append("    webDocumentOptions: ").append(toIndentedString(webDocumentOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

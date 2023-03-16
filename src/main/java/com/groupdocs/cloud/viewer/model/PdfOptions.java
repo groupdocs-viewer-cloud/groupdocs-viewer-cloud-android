@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PdfOptions.java">
- *   Copyright (c) 2003-2021 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,6 +45,7 @@ import com.groupdocs.cloud.viewer.model.RenderOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
 import com.groupdocs.cloud.viewer.model.TextOptions;
 import com.groupdocs.cloud.viewer.model.VisioRenderingOptions;
+import com.groupdocs.cloud.viewer.model.WebDocumentOptions;
 import com.groupdocs.cloud.viewer.model.WordProcessingOptions;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
