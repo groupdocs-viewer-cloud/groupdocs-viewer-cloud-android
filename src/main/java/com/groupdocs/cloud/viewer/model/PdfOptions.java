@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="PdfOptions.java">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) 2003-2024 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -40,6 +40,7 @@ import com.groupdocs.cloud.viewer.model.MailStorageOptions;
 import com.groupdocs.cloud.viewer.model.OutlookOptions;
 import com.groupdocs.cloud.viewer.model.PageRotation;
 import com.groupdocs.cloud.viewer.model.PdfDocumentOptions;
+import com.groupdocs.cloud.viewer.model.PdfOptimizationOptions;
 import com.groupdocs.cloud.viewer.model.ProjectManagementOptions;
 import com.groupdocs.cloud.viewer.model.RenderOptions;
 import com.groupdocs.cloud.viewer.model.SpreadsheetOptions;
@@ -58,9 +59,6 @@ import java.util.List;
  */
 @ApiModel(description = "Options for rendering document into PDF")
 public class PdfOptions extends RenderOptions {
-  @SerializedName("jpgQuality")
-  private Integer jpgQuality = null;
-
   @SerializedName("documentOpenPassword")
   private String documentOpenPassword = null;
 
@@ -69,6 +67,9 @@ public class PdfOptions extends RenderOptions {
 
   @SerializedName("permissions")
   private List<String> permissions = null;
+
+  @SerializedName("pdfOptimizationOptions")
+  private PdfOptimizationOptions pdfOptimizationOptions = null;
 
   @SerializedName("imageMaxWidth")
   private Integer imageMaxWidth = null;
@@ -81,24 +82,6 @@ public class PdfOptions extends RenderOptions {
 
   @SerializedName("imageHeight")
   private Integer imageHeight = null;
-
-  public PdfOptions jpgQuality(Integer jpgQuality) {
-    this.jpgQuality = jpgQuality;
-    return this;
-  }
-
-   /**
-   * The quality of the JPG images contained by output PDF document; Valid values are between 1 and 100; Default value is 90
-   * @return jpgQuality
-  **/
-  @ApiModelProperty(required = true, value = "The quality of the JPG images contained by output PDF document; Valid values are between 1 and 100; Default value is 90")
-  public Integer getJpgQuality() {
-    return jpgQuality;
-  }
-
-  public void setJpgQuality(Integer jpgQuality) {
-    this.jpgQuality = jpgQuality;
-  }
 
   public PdfOptions documentOpenPassword(String documentOpenPassword) {
     this.documentOpenPassword = documentOpenPassword;
@@ -160,6 +143,24 @@ public class PdfOptions extends RenderOptions {
 
   public void setPermissions(List<String> permissions) {
     this.permissions = permissions;
+  }
+
+  public PdfOptions pdfOptimizationOptions(PdfOptimizationOptions pdfOptimizationOptions) {
+    this.pdfOptimizationOptions = pdfOptimizationOptions;
+    return this;
+  }
+
+   /**
+   * Contains options for rendering documents into PDF format.
+   * @return pdfOptimizationOptions
+  **/
+  @ApiModelProperty(value = "Contains options for rendering documents into PDF format.")
+  public PdfOptimizationOptions getPdfOptimizationOptions() {
+    return pdfOptimizationOptions;
+  }
+
+  public void setPdfOptimizationOptions(PdfOptimizationOptions pdfOptimizationOptions) {
+    this.pdfOptimizationOptions = pdfOptimizationOptions;
   }
 
   public PdfOptions imageMaxWidth(Integer imageMaxWidth) {
@@ -244,10 +245,10 @@ public class PdfOptions extends RenderOptions {
       return false;
     }
     PdfOptions pdfOptions = (PdfOptions) o;
-    return Objects.equals(this.jpgQuality, pdfOptions.jpgQuality) &&
-        Objects.equals(this.documentOpenPassword, pdfOptions.documentOpenPassword) &&
+    return Objects.equals(this.documentOpenPassword, pdfOptions.documentOpenPassword) &&
         Objects.equals(this.permissionsPassword, pdfOptions.permissionsPassword) &&
         Objects.equals(this.permissions, pdfOptions.permissions) &&
+        Objects.equals(this.pdfOptimizationOptions, pdfOptions.pdfOptimizationOptions) &&
         Objects.equals(this.imageMaxWidth, pdfOptions.imageMaxWidth) &&
         Objects.equals(this.imageMaxHeight, pdfOptions.imageMaxHeight) &&
         Objects.equals(this.imageWidth, pdfOptions.imageWidth) &&
@@ -257,7 +258,7 @@ public class PdfOptions extends RenderOptions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jpgQuality, documentOpenPassword, permissionsPassword, permissions, imageMaxWidth, imageMaxHeight, imageWidth, imageHeight, super.hashCode());
+    return Objects.hash(documentOpenPassword, permissionsPassword, permissions, pdfOptimizationOptions, imageMaxWidth, imageMaxHeight, imageWidth, imageHeight, super.hashCode());
   }
 
 
@@ -266,10 +267,10 @@ public class PdfOptions extends RenderOptions {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfOptions {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    jpgQuality: ").append(toIndentedString(jpgQuality)).append("\n");
     sb.append("    documentOpenPassword: ").append(toIndentedString(documentOpenPassword)).append("\n");
     sb.append("    permissionsPassword: ").append(toIndentedString(permissionsPassword)).append("\n");
     sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+    sb.append("    pdfOptimizationOptions: ").append(toIndentedString(pdfOptimizationOptions)).append("\n");
     sb.append("    imageMaxWidth: ").append(toIndentedString(imageMaxWidth)).append("\n");
     sb.append("    imageMaxHeight: ").append(toIndentedString(imageMaxHeight)).append("\n");
     sb.append("    imageWidth: ").append(toIndentedString(imageWidth)).append("\n");
