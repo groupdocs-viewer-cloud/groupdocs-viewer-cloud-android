@@ -169,10 +169,10 @@ public class PdfOptions extends RenderOptions {
   }
 
    /**
-   * Max width of an output image in pixels. (When converting single image to HTML only)
+   * Max width of an output image in pixels. (When converting single image to PDF only)
    * @return imageMaxWidth
   **/
-  @ApiModelProperty(required = true, value = "Max width of an output image in pixels. (When converting single image to HTML only)")
+  @ApiModelProperty(required = true, value = "Max width of an output image in pixels. (When converting single image to PDF only)")
   public Integer getImageMaxWidth() {
     return imageMaxWidth;
   }
@@ -187,10 +187,10 @@ public class PdfOptions extends RenderOptions {
   }
 
    /**
-   * Max height of an output image in pixels. (When converting single image to HTML only)
+   * Max height of an output image in pixels. (When converting single image to PDF only)
    * @return imageMaxHeight
   **/
-  @ApiModelProperty(required = true, value = "Max height of an output image in pixels. (When converting single image to HTML only)")
+  @ApiModelProperty(required = true, value = "Max height of an output image in pixels. (When converting single image to PDF only)")
   public Integer getImageMaxHeight() {
     return imageMaxHeight;
   }
@@ -205,10 +205,10 @@ public class PdfOptions extends RenderOptions {
   }
 
    /**
-   * The width of the output image in pixels. (When converting single image to HTML only)
+   * The width of the output image in pixels. (When converting single image to PDF only)
    * @return imageWidth
   **/
-  @ApiModelProperty(required = true, value = "The width of the output image in pixels. (When converting single image to HTML only)")
+  @ApiModelProperty(required = true, value = "The width of the output image in pixels. (When converting single image to PDF only)")
   public Integer getImageWidth() {
     return imageWidth;
   }
@@ -223,10 +223,10 @@ public class PdfOptions extends RenderOptions {
   }
 
    /**
-   * The height of an output image in pixels. (When converting single image to HTML only)
+   * The height of an output image in pixels. (When converting single image to PDF only)
    * @return imageHeight
   **/
-  @ApiModelProperty(required = true, value = "The height of an output image in pixels. (When converting single image to HTML only)")
+  @ApiModelProperty(required = true, value = "The height of an output image in pixels. (When converting single image to PDF only)")
   public Integer getImageHeight() {
     return imageHeight;
   }

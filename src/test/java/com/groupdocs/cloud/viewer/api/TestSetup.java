@@ -8,6 +8,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({
     AuthApiTests.class,
     FormatsApiTests.class,
+    ConvertAndDownloadApiTests.class,
     ViewerGetInfoApiTests.class,
     ViewerCreateViewApiTests.class,
     ViewerDeleteViewApiTests.class,

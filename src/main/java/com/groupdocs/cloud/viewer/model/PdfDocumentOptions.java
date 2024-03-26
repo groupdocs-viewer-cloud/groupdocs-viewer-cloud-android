@@ -109,6 +109,15 @@ public class PdfDocumentOptions {
   @SerializedName("renderTextAsImage")
   private Boolean renderTextAsImage = null;
 
+  @SerializedName("fixedLayout")
+  private Boolean fixedLayout = null;
+
+  @SerializedName("wrapImagesInSvg")
+  private Boolean wrapImagesInSvg = null;
+
+  @SerializedName("disableFontLicenseVerifications")
+  private Boolean disableFontLicenseVerifications = null;
+
   public PdfDocumentOptions disableCharsGrouping(Boolean disableCharsGrouping) {
     this.disableCharsGrouping = disableCharsGrouping;
     return this;
@@ -217,6 +226,60 @@ public class PdfDocumentOptions {
     this.renderTextAsImage = renderTextAsImage;
   }
 
+  public PdfDocumentOptions fixedLayout(Boolean fixedLayout) {
+    this.fixedLayout = fixedLayout;
+    return this;
+  }
+
+   /**
+   * Enables rendering the PDF and EPUB documents to HTML with a fixed layout.
+   * @return fixedLayout
+  **/
+  @ApiModelProperty(required = true, value = "Enables rendering the PDF and EPUB documents to HTML with a fixed layout.")
+  public Boolean getFixedLayout() {
+    return fixedLayout;
+  }
+
+  public void setFixedLayout(Boolean fixedLayout) {
+    this.fixedLayout = fixedLayout;
+  }
+
+  public PdfDocumentOptions wrapImagesInSvg(Boolean wrapImagesInSvg) {
+    this.wrapImagesInSvg = wrapImagesInSvg;
+    return this;
+  }
+
+   /**
+   * Enables wrapping each image in the output HTML document in SVG tag to improve the output quality.
+   * @return wrapImagesInSvg
+  **/
+  @ApiModelProperty(required = true, value = "Enables wrapping each image in the output HTML document in SVG tag to improve the output quality.")
+  public Boolean getWrapImagesInSvg() {
+    return wrapImagesInSvg;
+  }
+
+  public void setWrapImagesInSvg(Boolean wrapImagesInSvg) {
+    this.wrapImagesInSvg = wrapImagesInSvg;
+  }
+
+  public PdfDocumentOptions disableFontLicenseVerifications(Boolean disableFontLicenseVerifications) {
+    this.disableFontLicenseVerifications = disableFontLicenseVerifications;
+    return this;
+  }
+
+   /**
+   * Disables any license restrictions for all fonts in the current XPS/OXPS document.
+   * @return disableFontLicenseVerifications
+  **/
+  @ApiModelProperty(required = true, value = "Disables any license restrictions for all fonts in the current XPS/OXPS document.")
+  public Boolean getDisableFontLicenseVerifications() {
+    return disableFontLicenseVerifications;
+  }
+
+  public void setDisableFontLicenseVerifications(Boolean disableFontLicenseVerifications) {
+    this.disableFontLicenseVerifications = disableFontLicenseVerifications;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -232,12 +295,15 @@ public class PdfDocumentOptions {
         Objects.equals(this.enableFontHinting, pdfDocumentOptions.enableFontHinting) &&
         Objects.equals(this.renderOriginalPageSize, pdfDocumentOptions.renderOriginalPageSize) &&
         Objects.equals(this.imageQuality, pdfDocumentOptions.imageQuality) &&
-        Objects.equals(this.renderTextAsImage, pdfDocumentOptions.renderTextAsImage);
+        Objects.equals(this.renderTextAsImage, pdfDocumentOptions.renderTextAsImage) &&
+        Objects.equals(this.fixedLayout, pdfDocumentOptions.fixedLayout) &&
+        Objects.equals(this.wrapImagesInSvg, pdfDocumentOptions.wrapImagesInSvg) &&
+        Objects.equals(this.disableFontLicenseVerifications, pdfDocumentOptions.disableFontLicenseVerifications);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(disableCharsGrouping, enableLayeredRendering, enableFontHinting, renderOriginalPageSize, imageQuality, renderTextAsImage);
+    return Objects.hash(disableCharsGrouping, enableLayeredRendering, enableFontHinting, renderOriginalPageSize, imageQuality, renderTextAsImage, fixedLayout, wrapImagesInSvg, disableFontLicenseVerifications);
   }
 
 
@@ -252,6 +318,9 @@ public class PdfDocumentOptions {
     sb.append("    renderOriginalPageSize: ").append(toIndentedString(renderOriginalPageSize)).append("\n");
     sb.append("    imageQuality: ").append(toIndentedString(imageQuality)).append("\n");
     sb.append("    renderTextAsImage: ").append(toIndentedString(renderTextAsImage)).append("\n");
+    sb.append("    fixedLayout: ").append(toIndentedString(fixedLayout)).append("\n");
+    sb.append("    wrapImagesInSvg: ").append(toIndentedString(wrapImagesInSvg)).append("\n");
+    sb.append("    disableFontLicenseVerifications: ").append(toIndentedString(disableFontLicenseVerifications)).append("\n");
     sb.append("}");
     return sb.toString();
   }
