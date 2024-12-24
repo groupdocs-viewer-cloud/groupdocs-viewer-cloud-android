@@ -48,9 +48,6 @@ public class ArchiveOptions {
   @SerializedName("fileName")
   private String fileName = null;
 
-  @SerializedName("itemsPerPage")
-  private Integer itemsPerPage = null;
-
   public ArchiveOptions folder(String folder) {
     this.folder = folder;
     return this;
@@ -87,24 +84,6 @@ public class ArchiveOptions {
     this.fileName = fileName;
   }
 
-  public ArchiveOptions itemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
-    return this;
-  }
-
-   /**
-   * Number of records per page (for rendering to HTML only)             
-   * @return itemsPerPage
-  **/
-  @ApiModelProperty(required = true, value = "Number of records per page (for rendering to HTML only)             ")
-  public Integer getItemsPerPage() {
-    return itemsPerPage;
-  }
-
-  public void setItemsPerPage(Integer itemsPerPage) {
-    this.itemsPerPage = itemsPerPage;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -116,13 +95,12 @@ public class ArchiveOptions {
     }
     ArchiveOptions archiveOptions = (ArchiveOptions) o;
     return Objects.equals(this.folder, archiveOptions.folder) &&
-        Objects.equals(this.fileName, archiveOptions.fileName) &&
-        Objects.equals(this.itemsPerPage, archiveOptions.itemsPerPage);
+        Objects.equals(this.fileName, archiveOptions.fileName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(folder, fileName, itemsPerPage);
+    return Objects.hash(folder, fileName);
   }
 
 
@@ -133,7 +111,6 @@ public class ArchiveOptions {
     
     sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
     sb.append("    fileName: ").append(toIndentedString(fileName)).append("\n");
-    sb.append("    itemsPerPage: ").append(toIndentedString(itemsPerPage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
