@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="HtmlOptions.java">
- *   Copyright (c) 2003-2024 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -93,6 +93,9 @@ public class HtmlOptions extends RenderOptions {
 
   @SerializedName("renderToSinglePage")
   private Boolean renderToSinglePage = null;
+
+  @SerializedName("removeJavaScript")
+  private Boolean removeJavaScript = null;
 
   public HtmlOptions externalResources(Boolean externalResources) {
     this.externalResources = externalResources;
@@ -318,6 +321,24 @@ public class HtmlOptions extends RenderOptions {
     this.renderToSinglePage = renderToSinglePage;
   }
 
+  public HtmlOptions removeJavaScript(Boolean removeJavaScript) {
+    this.removeJavaScript = removeJavaScript;
+    return this;
+  }
+
+   /**
+   * Allows to remove the JavaScript source code from the links in resultant HTML documents, when rendering input documents, which have the scripts. By default is enabled (true).             
+   * @return removeJavaScript
+  **/
+  @ApiModelProperty(required = true, value = "Allows to remove the JavaScript source code from the links in resultant HTML documents, when rendering input documents, which have the scripts. By default is enabled (true).             ")
+  public Boolean getRemoveJavaScript() {
+    return removeJavaScript;
+  }
+
+  public void setRemoveJavaScript(Boolean removeJavaScript) {
+    this.removeJavaScript = removeJavaScript;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -340,12 +361,13 @@ public class HtmlOptions extends RenderOptions {
         Objects.equals(this.imageMaxHeight, htmlOptions.imageMaxHeight) &&
         Objects.equals(this.imageMaxWidth, htmlOptions.imageMaxWidth) &&
         Objects.equals(this.renderToSinglePage, htmlOptions.renderToSinglePage) &&
+        Objects.equals(this.removeJavaScript, htmlOptions.removeJavaScript) &&
         super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalResources, resourcePath, isResponsive, minify, excludeFonts, fontsToExclude, forPrinting, imageHeight, imageWidth, imageMaxHeight, imageMaxWidth, renderToSinglePage, super.hashCode());
+    return Objects.hash(externalResources, resourcePath, isResponsive, minify, excludeFonts, fontsToExclude, forPrinting, imageHeight, imageWidth, imageMaxHeight, imageMaxWidth, renderToSinglePage, removeJavaScript, super.hashCode());
   }
 
 
@@ -366,6 +388,7 @@ public class HtmlOptions extends RenderOptions {
     sb.append("    imageMaxHeight: ").append(toIndentedString(imageMaxHeight)).append("\n");
     sb.append("    imageMaxWidth: ").append(toIndentedString(imageMaxWidth)).append("\n");
     sb.append("    renderToSinglePage: ").append(toIndentedString(renderToSinglePage)).append("\n");
+    sb.append("    removeJavaScript: ").append(toIndentedString(removeJavaScript)).append("\n");
     sb.append("}");
     return sb.toString();
   }
