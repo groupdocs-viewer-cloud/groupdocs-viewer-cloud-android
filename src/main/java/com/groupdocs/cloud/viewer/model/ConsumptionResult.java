@@ -49,6 +49,9 @@ public class ConsumptionResult {
   @SerializedName("quantity")
   private BigDecimal quantity = null;
 
+  @SerializedName("billedApiCalls")
+  private BigDecimal billedApiCalls = null;
+
   public ConsumptionResult credit(BigDecimal credit) {
     this.credit = credit;
     return this;
@@ -85,6 +88,24 @@ public class ConsumptionResult {
     this.quantity = quantity;
   }
 
+  public ConsumptionResult billedApiCalls(BigDecimal billedApiCalls) {
+    this.billedApiCalls = billedApiCalls;
+    return this;
+  }
+
+   /**
+   * Billed API calls number
+   * @return billedApiCalls
+  **/
+  @ApiModelProperty(required = true, value = "Billed API calls number")
+  public BigDecimal getBilledApiCalls() {
+    return billedApiCalls;
+  }
+
+  public void setBilledApiCalls(BigDecimal billedApiCalls) {
+    this.billedApiCalls = billedApiCalls;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,12 +117,13 @@ public class ConsumptionResult {
     }
     ConsumptionResult consumptionResult = (ConsumptionResult) o;
     return Objects.equals(this.credit, consumptionResult.credit) &&
-        Objects.equals(this.quantity, consumptionResult.quantity);
+        Objects.equals(this.quantity, consumptionResult.quantity) &&
+        Objects.equals(this.billedApiCalls, consumptionResult.billedApiCalls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credit, quantity);
+    return Objects.hash(credit, quantity, billedApiCalls);
   }
 
 
@@ -112,6 +134,7 @@ public class ConsumptionResult {
     
     sb.append("    credit: ").append(toIndentedString(credit)).append("\n");
     sb.append("    quantity: ").append(toIndentedString(quantity)).append("\n");
+    sb.append("    billedApiCalls: ").append(toIndentedString(billedApiCalls)).append("\n");
     sb.append("}");
     return sb.toString();
   }

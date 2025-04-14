@@ -25,7 +25,7 @@ repositories {
 ...
 dependencies {
     ...
-    implementation 'com.groupdocs:groupdocs-viewer-cloud-android:25.3'
+    implementation 'com.groupdocs:groupdocs-viewer-cloud-android:25.4'
 }
 ```
 
