@@ -141,14 +141,73 @@
                             <execution>
                                 <phase>package</phase>
                                 <configuration>
-                                    <tasks>                         
-                                      <exec
-                                        dir="${project.basedir}"
-                                        executable="powershell"
-                                        failonerror="true">
-                                        <arg line="-Command &quot;(Get-Content simplified-pom.template) | ForEach-Object { $_ -replace &quot;{{VERSION}}&quot;, {&quot;${project.version}&quot;} } | Set-Content simplified-pom.xml&quot;" />
-                                      </exec>
-                                    </tasks>
+<target>
+                                      <echo file="${project.basedir}/simplified-pom.xml" encoding="UTF-8"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>${project.groupId}</groupId>
+  <artifactId>${project.artifactId}</artifactId>
+  <version>${project.version}</version>
+  <packaging>${project.packaging}</packaging>
+
+  <name>${project.name}</name>
+  <description>${project.description}</description>
+  <url>${project.url}</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>GroupDocs</name>
+      <email>support@groupdocs.cloud</email>
+      <organization>Aspose Pty Ltd</organization>
+      <organizationUrl>https://www.groupdocs.cloud</organizationUrl>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>${swagger-core-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>logging-interceptor</artifactId>
+      <version>${okhttp-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.gsonfire</groupId>
+      <artifactId>gson-fire</artifactId>
+      <version>${gson-fire-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.threeten</groupId>
+      <artifactId>threetenbp</artifactId>
+      <version>${threetenbp-version}</version>
+    </dependency>
+  </dependencies>
+</project>
+]]></echo>
+                                    </target>
                                 </configuration>
                                 <goals>
                                     <goal>run</goal>
@@ -222,14 +281,73 @@
                             <execution>
                                 <phase>package</phase>
                                 <configuration>
-                                    <tasks>                         
-                                      <exec
-                                        dir="${project.basedir}"
-                                        executable="powershell"
-                                        failonerror="true">
-                                        <arg line="-Command &quot;(Get-Content simplified-pom.template) | ForEach-Object { $_ -replace &quot;{{VERSION}}&quot;, {&quot;${project.version}&quot;} } | Set-Content simplified-pom.xml&quot;" />
-                                      </exec>
-                                    </tasks>
+ <target>
+                                      <echo file="${project.basedir}/simplified-pom.xml" encoding="UTF-8"><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>${project.groupId}</groupId>
+  <artifactId>${project.artifactId}</artifactId>
+  <version>${project.version}</version>
+  <packaging>${project.packaging}</packaging>
+
+  <name>${project.name}</name>
+  <description>${project.description}</description>
+  <url>${project.url}</url>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>GroupDocs</name>
+      <email>support@groupdocs.cloud</email>
+      <organization>Aspose Pty Ltd</organization>
+      <organizationUrl>https://www.groupdocs.cloud</organizationUrl>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-annotations</artifactId>
+      <version>${swagger-core-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>${okhttp-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>logging-interceptor</artifactId>
+      <version>${okhttp-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.gsonfire</groupId>
+      <artifactId>gson-fire</artifactId>
+      <version>${gson-fire-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.threeten</groupId>
+      <artifactId>threetenbp</artifactId>
+      <version>${threetenbp-version}</version>
+    </dependency>
+  </dependencies>
+</project>
+]]></echo>
+                                    </target>
                                 </configuration>
                                 <goals>
                                     <goal>run</goal>
