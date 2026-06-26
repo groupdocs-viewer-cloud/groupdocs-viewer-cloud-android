@@ -32,16 +32,16 @@ import java.util.ArrayList;
 public class TestFiles {
 
     
-    public static TestFile OnePageDocx = new TestFile("one-page.docx", "words\\docx\\");
+    public static TestFile OnePageDocx = new TestFile("one-page.docx", "words/docx/");
     public static TestFile NotExist = new TestFile("NotExist.docx", "some-folder/");
-    public static TestFile PasswordProtectedDocx = new TestFile("password-protected.docx", "words\\docx\\");
-    public static TestFile TwoHiddenPagesVsd = new TestFile("two-hidden-pages.vsd", "diagram\\vsd\\");
-    public static TestFile WithHiddenRowsAndColumns = new TestFile("with-hidden-rows-and-columns.xlsx", "cells\\xlsx\\");
-    public static TestFile ThreeLayoutsDwf = new TestFile("three-layouts.dwf", "cad\\dwf\\");    
-    public static TestFile ProjectMpp = new TestFile("sample.mpp", "project\\mpp\\");
-    public static TestFile UsesCustomFontPptx = new TestFile("uses-custom-font.pptx", "slides\\pptx\\");    
-    public static TestFile FontTtf = new TestFile("foo.ttf", "font\\ttf\\");
-    public static TestFile FourPagesDocx = new TestFile("four-pages.docx", "words\\docx\\");    
+    public static TestFile PasswordProtectedDocx = new TestFile("password-protected.docx", "words/docx/");
+    public static TestFile TwoHiddenPagesVsd = new TestFile("two-hidden-pages.vsd", "diagram/vsd/");
+    public static TestFile WithHiddenRowsAndColumns = new TestFile("with-hidden-rows-and-columns.xlsx", "cells/xlsx/");
+    public static TestFile ThreeLayoutsDwf = new TestFile("three-layouts.dwf", "cad/dwf/");    
+    public static TestFile ProjectMpp = new TestFile("sample.mpp", "project/mpp/");
+    public static TestFile UsesCustomFontPptx = new TestFile("uses-custom-font.pptx", "slides/pptx/");    
+    public static TestFile FontTtf = new TestFile("foo.ttf", "font/ttf/");
+    public static TestFile FourPagesDocx = new TestFile("four-pages.docx", "words/docx/");    
     
     static {
         PasswordProtectedDocx.setPassword("password");
